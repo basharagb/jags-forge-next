@@ -1,0 +1,197 @@
+import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+
+export type Lang = "en" | "ar";
+
+type Dict = Record<string, string>;
+
+const en: Dict = {
+  "nav.home": "Home",
+  "nav.about": "About",
+  "nav.services": "Services",
+  "nav.solutions": "Solutions",
+  "nav.industries": "Industries",
+  "nav.products": "Products",
+  "nav.portfolio": "Portfolio",
+  "nav.blog": "Insights",
+  "nav.careers": "Careers",
+  "nav.contact": "Contact",
+  "nav.cta": "Get a proposal",
+
+  "hero.eyebrow": "Enterprise IT · Digital Transformation · AI",
+  "hero.title.a": "Transforming businesses",
+  "hero.title.b": "through technology",
+  "hero.sub":
+    "Jordan Advanced Gate empowers organizations with software, AI, cloud, cybersecurity and infrastructure engineered for enterprise scale.",
+  "hero.cta1": "Schedule consultation",
+  "hero.cta2": "Explore services",
+  "hero.cta3": "Watch demo",
+
+  "stats.years": "Years of experience",
+  "stats.projects": "Projects delivered",
+  "stats.clients": "Clients worldwide",
+  "stats.countries": "Countries served",
+  "stats.engineers": "Certified engineers",
+  "stats.satisfaction": "Client satisfaction",
+
+  "why.title": "Why enterprises choose JAG",
+  "why.sub": "A trusted engineering partner for governments, banks, universities and global brands.",
+
+  "services.title": "Services built for enterprise scale",
+  "services.sub": "From custom software to full digital transformation programs — engineered end-to-end.",
+
+  "industries.title": "Industries we serve",
+  "industries.sub": "Deep vertical expertise across regulated and high-growth sectors.",
+
+  "tech.title": "Technologies we master",
+
+  "testimonials.title": "Trusted by leaders",
+
+  "cta.title": "Let's build what's next.",
+  "cta.sub": "Book a 30-minute strategy session with our solutions team.",
+  "cta.button": "Start a project",
+
+  "footer.tagline": "IT solutions & digital transformation",
+  "footer.company": "Company",
+  "footer.services": "Services",
+  "footer.resources": "Resources",
+  "footer.legal": "Legal",
+  "footer.newsletter": "Get monthly insights on enterprise technology.",
+  "footer.subscribe": "Subscribe",
+  "footer.email": "Email address",
+  "footer.rights": "All rights reserved.",
+
+  "about.title": "Building the digital gate to a smarter Jordan — and beyond.",
+  "about.sub":
+    "Founded to bridge global engineering standards with the ambitions of regional enterprises, JAG operates at the intersection of strategy, software and infrastructure.",
+  "about.mission": "Our mission",
+  "about.missionText":
+    "To help organizations run, grow and reinvent themselves with resilient, secure and human-centered technology.",
+  "about.vision": "Our vision",
+  "about.visionText":
+    "A region where every institution — public or private — can deliver world-class digital services with confidence.",
+  "about.values": "Core values",
+
+  "contact.title": "Talk to our team",
+  "contact.sub": "Tell us about your project. We'll respond within one business day.",
+  "contact.name": "Full name",
+  "contact.email": "Work email",
+  "contact.company": "Company",
+  "contact.phone": "Phone",
+  "contact.message": "How can we help?",
+  "contact.submit": "Send message",
+  "contact.sent": "Thank you — a strategist will reach out shortly.",
+};
+
+const ar: Dict = {
+  "nav.home": "الرئيسية",
+  "nav.about": "من نحن",
+  "nav.services": "الخدمات",
+  "nav.solutions": "الحلول",
+  "nav.industries": "القطاعات",
+  "nav.products": "المنتجات",
+  "nav.portfolio": "أعمالنا",
+  "nav.blog": "المدونة",
+  "nav.careers": "الوظائف",
+  "nav.contact": "تواصل معنا",
+  "nav.cta": "اطلب عرضاً",
+
+  "hero.eyebrow": "تقنية المؤسسات · التحول الرقمي · الذكاء الاصطناعي",
+  "hero.title.a": "نُحوّل الأعمال",
+  "hero.title.b": "عبر التكنولوجيا",
+  "hero.sub":
+    "البوابة المتقدمة الأردنية تُمكّن المؤسسات ببرمجيات وذكاء اصطناعي وحلول سحابية وأمن سيبراني وبنية تحتية مصممة على مستوى المؤسسات.",
+  "hero.cta1": "احجز استشارة",
+  "hero.cta2": "استكشف الخدمات",
+  "hero.cta3": "شاهد العرض",
+
+  "stats.years": "سنوات الخبرة",
+  "stats.projects": "مشروع منجز",
+  "stats.clients": "عميل حول العالم",
+  "stats.countries": "دولة",
+  "stats.engineers": "مهندس معتمد",
+  "stats.satisfaction": "رضا العملاء",
+
+  "why.title": "لماذا تختارنا كبرى المؤسسات",
+  "why.sub": "شريك هندسي موثوق للحكومات والبنوك والجامعات والشركات العالمية.",
+
+  "services.title": "خدمات مصممة لمستوى المؤسسات",
+  "services.sub": "من تطوير البرمجيات المخصصة إلى برامج التحول الرقمي الشاملة.",
+
+  "industries.title": "القطاعات التي نخدمها",
+  "industries.sub": "خبرة عميقة في القطاعات المنظمة والنامية.",
+
+  "tech.title": "التقنيات التي نتقنها",
+
+  "testimonials.title": "يثق بنا القادة",
+
+  "cta.title": "لنبنِ الخطوة القادمة معاً.",
+  "cta.sub": "احجز جلسة استراتيجية مدتها 30 دقيقة مع فريق الحلول.",
+  "cta.button": "ابدأ مشروعك",
+
+  "footer.tagline": "حلول تقنية المعلومات والتحول الرقمي",
+  "footer.company": "الشركة",
+  "footer.services": "الخدمات",
+  "footer.resources": "المصادر",
+  "footer.legal": "قانوني",
+  "footer.newsletter": "اشترك لتصلك رؤى تقنية شهرية.",
+  "footer.subscribe": "اشتراك",
+  "footer.email": "البريد الإلكتروني",
+  "footer.rights": "جميع الحقوق محفوظة.",
+
+  "about.title": "نبني البوابة الرقمية لأردن أكثر ذكاءً — وما بعده.",
+  "about.sub":
+    "تأسست البوابة المتقدمة الأردنية لتجسير الفجوة بين المعايير الهندسية العالمية وطموحات المؤسسات الإقليمية.",
+  "about.mission": "رسالتنا",
+  "about.missionText":
+    "مساعدة المؤسسات على التشغيل والنمو وإعادة الاختراع عبر تقنيات مرنة وآمنة تركّز على الإنسان.",
+  "about.vision": "رؤيتنا",
+  "about.visionText":
+    "منطقة تُقدّم فيها كل مؤسسة — عامة أو خاصة — خدمات رقمية بجودة عالمية.",
+  "about.values": "قيمنا الجوهرية",
+
+  "contact.title": "تحدث إلى فريقنا",
+  "contact.sub": "أخبرنا عن مشروعك، وسنرد خلال يوم عمل واحد.",
+  "contact.name": "الاسم الكامل",
+  "contact.email": "البريد الإلكتروني",
+  "contact.company": "الشركة",
+  "contact.phone": "الهاتف",
+  "contact.message": "كيف يمكننا المساعدة؟",
+  "contact.submit": "أرسل الرسالة",
+  "contact.sent": "شكراً لك — سيتواصل معك أحد مستشارينا قريباً.",
+};
+
+const dicts: Record<Lang, Dict> = { en, ar };
+
+type Ctx = { lang: Lang; setLang: (l: Lang) => void; t: (k: string) => string; dir: "ltr" | "rtl" };
+const I18nContext = createContext<Ctx | null>(null);
+
+export function I18nProvider({ children }: { children: ReactNode }) {
+  const [lang, setLangState] = useState<Lang>("en");
+
+  useEffect(() => {
+    const stored = (typeof window !== "undefined" && localStorage.getItem("jag-lang")) as Lang | null;
+    if (stored === "ar" || stored === "en") setLangState(stored);
+  }, []);
+
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+  }, [lang]);
+
+  const setLang = (l: Lang) => {
+    setLangState(l);
+    if (typeof window !== "undefined") localStorage.setItem("jag-lang", l);
+  };
+
+  const t = (k: string) => dicts[lang][k] ?? dicts.en[k] ?? k;
+  const dir = lang === "ar" ? "rtl" : "ltr";
+
+  return <I18nContext.Provider value={{ lang, setLang, t, dir }}>{children}</I18nContext.Provider>;
+}
+
+export function useI18n() {
+  const ctx = useContext(I18nContext);
+  if (!ctx) throw new Error("useI18n must be inside I18nProvider");
+  return ctx;
+}
