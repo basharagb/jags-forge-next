@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { PageHero, PageShell } from "@/components/site/PageHero";
+import { PageShell } from "@/components/site/PageHero";
 import { CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -28,6 +28,3 @@ export const Route = createFileRoute("/thank-you")({
     </PageShell>
   ),
 });
-
-// Keep TS happy about unused import
-void PageHero;
