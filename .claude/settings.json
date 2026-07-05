@@ -28,7 +28,9 @@
       "Bash(curl -sSk -o /dev/null -w \"%{http_code}\\\\n\" https://jagjo.com/ --max-time 20)",
       "Bash(curl -sSk -o /dev/null -w \"%{http_code}\\\\n\" https://jagjo.com/about --max-time 20)",
       "Bash(curl -sSk -o /dev/null -w \"%{http_code} -> %{redirect_url}\\\\n\" https://jagjo.com/about/ --max-time 20)",
-      "Bash(curl -sSk -o /dev/null -w \"%{http_code} -> %{redirect_url}\\\\n\" https://www.jagjo.com/ --max-time 20)"
+      "Bash(curl -sSk -o /dev/null -w \"%{http_code} -> %{redirect_url}\\\\n\" https://www.jagjo.com/ --max-time 20)",
+      "Bash(curl -sS -o /dev/null -w \"%{http_code} ssl_verify_ok\\\\n\" https://jagjo.com/ --max-time 20)",
+      "Bash(python3 -)"
     ]
   }
 }
