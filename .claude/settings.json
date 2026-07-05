@@ -10,7 +10,10 @@
       "Bash(grep -oE \">[A-Za-z ]{15,}<\" dist/client/about/index.html)",
       "Bash(xxd)",
       "Bash(sips -g pixelWidth -g pixelHeight logo.jpg)",
-      "Bash(sips -g pixelWidth -g pixelHeight public/favicon.ico)"
+      "Bash(sips -g pixelWidth -g pixelHeight public/favicon.ico)",
+      "Bash(python3 -c \"import PIL; print\\('PIL', PIL.__version__\\)\")",
+      "Bash(sed -n '/head:/,/}\\),/p' src/routes/services.tsx)",
+      "Bash(python3)"
     ]
   }
 }
