@@ -14,6 +14,19 @@ export const Route = createFileRoute("/about")({
       { property: "og:url", content: "https://jagjo.com/about" },
     ],
     links: [{ rel: "canonical", href: "https://jagjo.com/about" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://jagjo.com/" },
+            { "@type": "ListItem", position: 2, name: "About", item: "https://jagjo.com/about" },
+          ],
+        }),
+      },
+    ],
   }),
   component: AboutPage,
 });
