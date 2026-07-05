@@ -7,6 +7,7 @@ type Dict = Record<string, string>;
 const en: Dict = {
   "brand.name": "Jordan Advanced Gate",
   "brand.tagline": "IT Solutions & Digital Transformation",
+  "brand.slogan": "Your partner in digital transformation & business development",
   "nav.home": "Home",
   "nav.about": "About",
   "nav.services": "Services",
@@ -67,7 +68,7 @@ const en: Dict = {
     "Founded to bridge global engineering standards with the ambitions of regional enterprises, JAG operates at the intersection of strategy, software and infrastructure.",
   "about.leadTitle": "Who we are",
   "about.lead":
-    "Jordan Advanced Gate (JAG) is a Jordanian technology company headquartered in Amman, delivering enterprise software, artificial intelligence, cloud, cybersecurity and digital transformation to governments, banks, universities and global brands. Since 2011 our certified engineers have shipped 320+ projects across 22 countries — combining international engineering standards with deep regional and bilingual (Arabic & English) expertise. From custom platforms and ERP/CRM to AI automation and 24/7 managed security, we help organizations run, grow and reinvent themselves with technology built for enterprise scale.",
+    "Jordan Advanced Gate (JAG) is a Jordanian technology company based in Amman, specialized in delivering integrated IT solutions and digital transformation services to companies and organizations of every size and sector. We build practical, reliable solutions — custom software, point-of-sale (POS) systems, networks and infrastructure, cybersecurity, AI, and electronic shelf labels (ESL) — helping our clients improve operational performance, raise efficiency and accelerate growth. We turn ideas into real digital solutions grounded in quality, innovation, reliability and genuine customer satisfaction.",
   "about.mission": "Our mission",
   "about.missionText":
     "To help organizations run, grow and reinvent themselves with resilient, secure and human-centered technology.",
@@ -150,7 +151,7 @@ const ar: Dict = {
     "تأسست البوابة المتقدمة الأردنية لتجسير الفجوة بين المعايير الهندسية العالمية وطموحات المؤسسات الإقليمية.",
   "about.leadTitle": "من نحن",
   "about.lead":
-    "البوابة المتقدمة الأردنية (JAG) شركة تقنية أردنية مقرها عمّان، تقدّم برمجيات المؤسسات والذكاء الاصطناعي والحوسبة السحابية والأمن السيبراني والتحول الرقمي للحكومات والبنوك والجامعات والعلامات التجارية العالمية. منذ عام 2011 أنجز مهندسونا المعتمدون أكثر من 320 مشروعاً في 22 دولة — بدمج المعايير الهندسية العالمية مع خبرة إقليمية عميقة وثنائية اللغة (عربي وإنجليزي). من المنصات المخصصة وأنظمة ERP/CRM إلى أتمتة الذكاء الاصطناعي والأمن المُدار على مدار الساعة، نساعد المؤسسات على التشغيل والنمو وإعادة الابتكار بتقنيات مصمّمة على مستوى المؤسسات.",
+    "البوابة المتقدمة الأردنية (JAG) شركة تقنية أردنية مقرها عمّان، متخصصة في تقديم الحلول التقنية المتكاملة وخدمات التحول الرقمي للشركات والمؤسسات بمختلف أحجامها وقطاعاتها. نقدّم حلولاً عملية وموثوقة تشمل تطوير البرمجيات، أنظمة نقاط البيع، الشبكات والبنية التحتية، الأمن السيبراني، الذكاء الاصطناعي، وبطاقات الأسعار الإلكترونية — بما يساعد عملاءنا على تحسين الأداء التشغيلي ورفع الكفاءة وتعزيز النمو. نحوّل الأفكار إلى حلول رقمية واقعية مبنية على الجودة والابتكار والموثوقية ورضا العملاء.",
   "about.mission": "رسالتنا",
   "about.missionText":
     "مساعدة المؤسسات على التشغيل والنمو وإعادة الاختراع عبر تقنيات مرنة وآمنة تركّز على الإنسان.",

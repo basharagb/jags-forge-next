@@ -136,9 +136,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               url: SITE_URL,
               logo: `${SITE_URL}/jag-mark.png`,
               image: OG_IMAGE,
-              email: "hello@jag.jo",
-              telephone: "+962-6-500-0000",
+              email: "info@jag.jo",
+              telephone: "+962-7-7091-1991",
               foundingLocation: "Amman, Jordan",
+              slogan: "Your Partner in Digital Transformation & Business Development",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Amman",
@@ -146,12 +147,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               },
               contactPoint: {
                 "@type": "ContactPoint",
-                telephone: "+962-6-500-0000",
+                telephone: "+962-7-7091-1991",
                 contactType: "sales",
-                email: "hello@jag.jo",
+                email: "info@jag.jo",
                 availableLanguage: ["en", "ar"],
               },
-              sameAs: ["https://www.linkedin.com/company/jordan-advanced-gate"],
+              sameAs: [
+                "https://www.facebook.com/Jordan.JAG.22/",
+                "https://www.linkedin.com/company/jordan-advanced-gate",
+              ],
             },
             {
               "@type": "WebSite",

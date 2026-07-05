@@ -33,11 +33,19 @@ export function Footer() {
             </form>
 
             <div className="mt-8 flex gap-3">
-              {[Linkedin, Twitter, Facebook, Instagram].map((Icon, i) => (
+              {[
+                { Icon: Facebook, href: "https://www.facebook.com/Jordan.JAG.22/", label: "Facebook" },
+                { Icon: Linkedin, href: "https://www.linkedin.com/company/jordan-advanced-gate", label: "LinkedIn" },
+                { Icon: Instagram, href: "https://www.instagram.com/", label: "Instagram" },
+                { Icon: Twitter, href: "https://x.com/", label: "X" },
+              ].map(({ Icon, href, label }) => (
                 <a
-                  key={i}
-                  href="#"
-                  className="h-9 w-9 grid place-items-center rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition"
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="h-9 w-9 grid place-items-center rounded-lg bg-white/5 border border-white/10 hover:bg-[var(--emerald-brand)] hover:border-[var(--emerald-brand)] hover:-translate-y-0.5 transition-all duration-300"
                 >
                   <Icon className="h-4 w-4" />
                 </a>
@@ -87,15 +95,15 @@ export function Footer() {
         <div className="mt-16 pt-8 border-t border-white/10 grid gap-6 md:grid-cols-3 text-sm text-white/70">
           <div className="flex items-start gap-3">
             <MapPin className="h-4 w-4 mt-0.5 text-[var(--emerald-glow)]" />
-            <span>Amman, Jordan · King Hussein Business Park</span>
+            <span>Amman, Jordan</span>
           </div>
           <div className="flex items-start gap-3">
             <Mail className="h-4 w-4 mt-0.5 text-[var(--emerald-glow)]" />
-            <a href="mailto:hello@jag.jo" className="hover:text-white">hello@jag.jo</a>
+            <a href="mailto:info@jag.jo" className="hover:text-white">info@jag.jo</a>
           </div>
           <div className="flex items-start gap-3">
             <Phone className="h-4 w-4 mt-0.5 text-[var(--emerald-glow)]" />
-            <a href="tel:+96265000000" className="hover:text-white">+962 6 500 0000</a>
+            <a href="tel:+962770911991" className="hover:text-white" dir="ltr">+962 7 7091 1991</a>
           </div>
         </div>
 

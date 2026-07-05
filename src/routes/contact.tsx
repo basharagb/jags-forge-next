@@ -80,11 +80,11 @@ function ContactPage() {
 
         <div className="lg:col-span-2 space-y-4">
           {[
-            { icon: MapPin, label: "Head office", value: "King Hussein Business Park, Amman, Jordan" },
-            { icon: Mail, label: "Email", value: "hello@jag.jo" },
-            { icon: Phone, label: "Phone", value: "+962 6 500 0000" },
+            { icon: MapPin, label: "Head office", value: "Amman, Jordan" },
+            { icon: Mail, label: "Email", value: "info@jag.jo" },
+            { icon: Phone, label: "Phone", value: "+962 7 7091 1991" },
             { icon: Clock, label: "Working hours", value: "Sun – Thu · 9:00 – 18:00 (GMT+3)" },
-            { icon: MessageCircle, label: "WhatsApp", value: "+962 7 9000 0000" },
+            { icon: MessageCircle, label: "WhatsApp", value: "+962 7 7091 1991" },
           ].map((c, i) => {
             const Icon = c.icon;
             return (
