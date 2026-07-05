@@ -200,10 +200,17 @@
 }
 
 @utility text-gradient {
-  background: linear-gradient(135deg, var(--emerald-glow) 0%, oklch(0.85 0.15 158) 50%, white 100%);
+  background: linear-gradient(110deg, var(--emerald-glow) 0%, oklch(0.85 0.15 158) 35%, white 55%, var(--emerald-glow) 100%);
+  background-size: 220% auto;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  animation: gradient-pan 7s ease-in-out infinite;
+}
+
+@keyframes gradient-pan {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 @utility text-gradient-brand {
@@ -241,10 +248,12 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-card);
-  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s, border-color 0.4s;
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-elegant);
+    transform: translateY(-6px);
+    border-color: color-mix(in oklab, var(--emerald-brand) 45%, transparent);
+    box-shadow: var(--shadow-elegant), 0 0 0 1px color-mix(in oklab, var(--emerald-brand) 20%, transparent),
+      0 24px 60px -20px color-mix(in oklab, var(--emerald-brand) 40%, transparent);
   }
 }
 
@@ -295,4 +304,51 @@
 
 @utility animate-pulse-ring {
   animation: pulse-ring 2s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+}
+
+/* Sheen sweep on hover (buttons / feature cards that opt in with .sheen) */
+@utility sheen {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(100deg, transparent 25%, oklch(1 0 0 / 0.22) 50%, transparent 75%);
+  transform: translateX(-130%) skewX(-14deg);
+  pointer-events: none;
+}
+.sheen:hover::after {
+  animation: sheen-move 0.85s ease;
+}
+@keyframes sheen-move {
+  to { transform: translateX(140%) skewX(-14deg); }
+}
+
+/* Soft rising entrance for grouped items */
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Gentle infinite bob for accents */
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@utility animate-bob {
+  animation: bob 4s ease-in-out infinite;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
