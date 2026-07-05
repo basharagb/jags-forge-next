@@ -10,9 +10,9 @@ export const Route = createFileRoute("/solutions")({
       { name: "description", content: "Pre-built and configurable JAG solutions for digital transformation, cloud modernization, AI adoption and cybersecurity." },
       { property: "og:title", content: "Solutions — JAG" },
       { property: "og:description", content: "Configurable enterprise solutions accelerating digital transformation." },
-      { property: "og:url", content: "/solutions" },
+      { property: "og:url", content: "https://jagjo.com/solutions" },
     ],
-    links: [{ rel: "canonical", href: "/solutions" }],
+    links: [{ rel: "canonical", href: "https://jagjo.com/solutions" }],
   }),
   component: SolutionsPage,
 });

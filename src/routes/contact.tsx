@@ -13,9 +13,9 @@ export const Route = createFileRoute("/contact")({
       { name: "description", content: "Reach the JAG team. Sales, support and technical inquiries — we respond within one business day." },
       { property: "og:title", content: "Contact — Jordan Advanced Gate" },
       { property: "og:description", content: "Talk to JAG about your enterprise IT project." },
-      { property: "og:url", content: "/contact" },
+      { property: "og:url", content: "https://jagjo.com/contact" },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: "https://jagjo.com/contact" }],
   }),
   component: ContactPage,
 });

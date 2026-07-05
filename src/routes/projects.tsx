@@ -7,9 +7,9 @@ export const Route = createFileRoute("/projects")({
       { title: "Projects — Jordan Advanced Gate" },
       { name: "description", content: "A wider view of the projects delivered by JAG." },
       { property: "og:title", content: "Projects — JAG" },
-      { property: "og:url", content: "/projects" },
+      { property: "og:url", content: "https://jagjo.com/projects" },
     ],
-    links: [{ rel: "canonical", href: "/projects" }],
+    links: [{ rel: "canonical", href: "https://jagjo.com/projects" }],
   }),
   component: () => (
     <PageShell>

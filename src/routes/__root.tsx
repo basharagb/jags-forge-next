@@ -72,28 +72,48 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
+const SITE_URL = "https://jagjo.com";
+const OG_IMAGE = `${SITE_URL}/og-image.png`;
+const TITLE = "Jordan Advanced Gate — Enterprise IT, AI & Digital Transformation";
+const DESCRIPTION =
+  "JAG builds enterprise software, AI, cloud, cybersecurity and infrastructure for governments, banks, universities and global brands.";
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Jordan Advanced Gate — Enterprise IT, AI & Digital Transformation" },
-      { name: "description", content: "JAG builds enterprise software, AI, cloud, cybersecurity and infrastructure for governments, banks, universities and global brands." },
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
+      {
+        name: "keywords",
+        content:
+          "Jordan Advanced Gate, JAG, IT solutions Jordan, digital transformation, enterprise software, AI, cloud, cybersecurity, ERP, Amman, البوابة المتقدمة الأردنية",
+      },
       { name: "author", content: "Jordan Advanced Gate" },
+      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1" },
       { name: "theme-color", content: "#0B2343" },
+      { name: "application-name", content: "Jordan Advanced Gate" },
       { property: "og:site_name", content: "Jordan Advanced Gate" },
       { property: "og:type", content: "website" },
-      { property: "og:title", content: "Jordan Advanced Gate — Enterprise IT, AI & Digital Transformation" },
-      { property: "og:description", content: "JAG builds enterprise software, AI, cloud, cybersecurity and infrastructure for governments, banks, universities and global brands." },
+      { property: "og:locale", content: "en_US" },
+      { property: "og:locale:alternate", content: "ar_JO" },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESCRIPTION },
+      { property: "og:image", content: OG_IMAGE },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "Jordan Advanced Gate — Enterprise IT & Digital Transformation" },
+      { property: "og:url", content: `${SITE_URL}/` },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Jordan Advanced Gate — Enterprise IT, AI & Digital Transformation" },
-      { name: "twitter:description", content: "JAG builds enterprise software, AI, cloud, cybersecurity and infrastructure for governments, banks, universities and global brands." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/8397e102-180d-417e-ac0e-86bd267893f3/id-preview-ae827a62--8a52d05c-988b-4733-9f99-e0378572423a.lovable.app-1783190973066.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/8397e102-180d-417e-ac0e-86bd267893f3/id-preview-ae827a62--8a52d05c-988b-4733-9f99-e0378572423a.lovable.app-1783190973066.png" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESCRIPTION },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
@@ -106,13 +126,42 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Organization",
-          name: "Jordan Advanced Gate",
-          alternateName: "JAG",
-          description: "IT Solutions & Digital Transformation",
-          url: "/",
-          address: { "@type": "PostalAddress", addressLocality: "Amman", addressCountry: "JO" },
-          sameAs: ["https://www.linkedin.com/company/jag"],
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id": `${SITE_URL}/#organization`,
+              name: "Jordan Advanced Gate",
+              alternateName: ["JAG", "البوابة المتقدمة الأردنية"],
+              description: "IT Solutions & Digital Transformation",
+              url: SITE_URL,
+              logo: `${SITE_URL}/jag-mark.png`,
+              image: OG_IMAGE,
+              email: "hello@jag.jo",
+              telephone: "+962-6-500-0000",
+              foundingLocation: "Amman, Jordan",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Amman",
+                addressCountry: "JO",
+              },
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+962-6-500-0000",
+                contactType: "sales",
+                email: "hello@jag.jo",
+                availableLanguage: ["en", "ar"],
+              },
+              sameAs: ["https://www.linkedin.com/company/jordan-advanced-gate"],
+            },
+            {
+              "@type": "WebSite",
+              "@id": `${SITE_URL}/#website`,
+              url: SITE_URL,
+              name: "Jordan Advanced Gate",
+              inLanguage: "en",
+              publisher: { "@id": `${SITE_URL}/#organization` },
+            },
+          ],
         }),
       },
     ],

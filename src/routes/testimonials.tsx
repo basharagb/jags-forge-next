@@ -10,9 +10,9 @@ export const Route = createFileRoute("/testimonials")({
       { title: "Testimonials — Jordan Advanced Gate" },
       { name: "description", content: "What our clients say about working with JAG." },
       { property: "og:title", content: "Testimonials — JAG" },
-      { property: "og:url", content: "/testimonials" },
+      { property: "og:url", content: "https://jagjo.com/testimonials" },
     ],
-    links: [{ rel: "canonical", href: "/testimonials" }],
+    links: [{ rel: "canonical", href: "https://jagjo.com/testimonials" }],
   }),
   component: TestimonialsPage,
 });

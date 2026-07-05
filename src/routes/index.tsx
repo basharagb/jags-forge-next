@@ -20,8 +20,9 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "JAG builds enterprise software, AI, cloud, cybersecurity and infrastructure for governments, banks, universities and global brands." },
       { property: "og:title", content: "Jordan Advanced Gate — Enterprise IT & Digital Transformation" },
       { property: "og:description", content: "Custom software, AI, cloud, cybersecurity and infrastructure for enterprises worldwide." },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: "https://jagjo.com/" },
     ],
+    links: [{ rel: "canonical", href: "https://jagjo.com/" }],
   }),
   component: HomePage,
 });

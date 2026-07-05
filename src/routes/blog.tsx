@@ -9,9 +9,9 @@ export const Route = createFileRoute("/blog")({
       { title: "Insights — Jordan Advanced Gate" },
       { name: "description", content: "Enterprise technology insights from JAG's engineering, AI and cybersecurity teams." },
       { property: "og:title", content: "Insights — JAG" },
-      { property: "og:url", content: "/blog" },
+      { property: "og:url", content: "https://jagjo.com/blog" },
     ],
-    links: [{ rel: "canonical", href: "/blog" }],
+    links: [{ rel: "canonical", href: "https://jagjo.com/blog" }],
   }),
   component: BlogPage,
 });

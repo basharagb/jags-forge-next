@@ -6,9 +6,9 @@ export const Route = createFileRoute("/terms")({
     meta: [
       { title: "Terms of Service — Jordan Advanced Gate" },
       { name: "description", content: "Terms governing use of the Jordan Advanced Gate website." },
-      { property: "og:url", content: "/terms" },
+      { property: "og:url", content: "https://jagjo.com/terms" },
     ],
-    links: [{ rel: "canonical", href: "/terms" }],
+    links: [{ rel: "canonical", href: "https://jagjo.com/terms" }],
   }),
   component: () => (
     <PageShell>

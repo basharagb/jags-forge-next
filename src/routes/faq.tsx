@@ -10,9 +10,9 @@ export const Route = createFileRoute("/faq")({
       { title: "FAQ — Jordan Advanced Gate" },
       { name: "description", content: "Answers to common questions about working with Jordan Advanced Gate." },
       { property: "og:title", content: "FAQ — JAG" },
-      { property: "og:url", content: "/faq" },
+      { property: "og:url", content: "https://jagjo.com/faq" },
     ],
-    links: [{ rel: "canonical", href: "/faq" }],
+    links: [{ rel: "canonical", href: "https://jagjo.com/faq" }],
     scripts: [
       {
         type: "application/ld+json",

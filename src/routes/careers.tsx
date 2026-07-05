@@ -9,9 +9,9 @@ export const Route = createFileRoute("/careers")({
       { title: "Careers — Jordan Advanced Gate" },
       { name: "description", content: "Build the future of enterprise technology with JAG. Open roles in engineering, AI, design and consulting." },
       { property: "og:title", content: "Careers — JAG" },
-      { property: "og:url", content: "/careers" },
+      { property: "og:url", content: "https://jagjo.com/careers" },
     ],
-    links: [{ rel: "canonical", href: "/careers" }],
+    links: [{ rel: "canonical", href: "https://jagjo.com/careers" }],
   }),
   component: CareersPage,
 });

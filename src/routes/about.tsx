@@ -11,9 +11,9 @@ export const Route = createFileRoute("/about")({
       { name: "description", content: "The team, mission and values behind JAG — a trusted engineering partner for enterprises, governments and universities." },
       { property: "og:title", content: "About — Jordan Advanced Gate" },
       { property: "og:description", content: "Meet the team building JAG — engineering, design and strategy for enterprise transformation." },
-      { property: "og:url", content: "/about" },
+      { property: "og:url", content: "https://jagjo.com/about" },
     ],
-    links: [{ rel: "canonical", href: "/about" }],
+    links: [{ rel: "canonical", href: "https://jagjo.com/about" }],
   }),
   component: AboutPage,
 });

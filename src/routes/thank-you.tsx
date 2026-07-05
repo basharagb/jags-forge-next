@@ -9,9 +9,9 @@ export const Route = createFileRoute("/thank-you")({
       { title: "Thank you — Jordan Advanced Gate" },
       { name: "description", content: "Your message has been received." },
       { name: "robots", content: "noindex" },
-      { property: "og:url", content: "/thank-you" },
+      { property: "og:url", content: "https://jagjo.com/thank-you" },
     ],
-    links: [{ rel: "canonical", href: "/thank-you" }],
+    links: [{ rel: "canonical", href: "https://jagjo.com/thank-you" }],
   }),
   component: () => (
     <PageShell>

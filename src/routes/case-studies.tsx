@@ -8,9 +8,9 @@ export const Route = createFileRoute("/case-studies")({
       { title: "Case Studies — Jordan Advanced Gate" },
       { name: "description", content: "In-depth case studies of JAG programs across government, banking, healthcare and retail." },
       { property: "og:title", content: "Case Studies — JAG" },
-      { property: "og:url", content: "/case-studies" },
+      { property: "og:url", content: "https://jagjo.com/case-studies" },
     ],
-    links: [{ rel: "canonical", href: "/case-studies" }],
+    links: [{ rel: "canonical", href: "https://jagjo.com/case-studies" }],
   }),
   component: CaseStudiesPage,
 });

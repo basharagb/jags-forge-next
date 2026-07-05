@@ -28,6 +28,17 @@ export function Header() {
     return () => window.removeEventListener("scroll", on);
   }, []);
 
+  // Every page renders a dark gradient hero under the fixed header, so at the top
+  // the header sits on a dark background (white text); once scrolled it becomes a
+  // light glass bar (dark text).
+  const onDark = !scrolled;
+  const navLink = onDark
+    ? "text-white/85 hover:text-white hover:bg-white/10"
+    : "text-foreground/75 hover:text-foreground hover:bg-muted";
+  const iconBtn = onDark
+    ? "text-white/85 hover:text-white hover:bg-white/10"
+    : "text-foreground/75 hover:text-foreground hover:bg-muted";
+
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
@@ -36,21 +47,21 @@ export function Header() {
     >
       <div className="container-x">
         <div
-          className={`flex items-center justify-between gap-6 rounded-2xl px-4 lg:px-6 py-3 transition-all ${
+          className={`flex items-center justify-between gap-6 rounded-2xl px-4 lg:px-6 py-2.5 transition-all ${
             scrolled
               ? "glass shadow-card border border-border/60"
               : "bg-transparent border border-transparent"
           }`}
         >
-          <Logo />
+          <Logo variant={onDark ? "dark" : "light"} />
 
           <nav className="hidden lg:flex items-center gap-1">
             {NAV.map((n) => (
               <Link
                 key={n.to}
                 to={n.to}
-                className="px-3 py-2 rounded-lg text-sm font-medium text-foreground/75 hover:text-foreground hover:bg-muted transition-colors"
-                activeProps={{ className: "text-foreground bg-muted" }}
+                className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${navLink}`}
+                activeProps={{ className: onDark ? "text-white bg-white/15" : "text-foreground bg-muted" }}
               >
                 {t(n.k)}
               </Link>
@@ -60,19 +71,19 @@ export function Header() {
           <div className="flex items-center gap-2">
             <button
               onClick={() => setLang(lang === "en" ? "ar" : "en")}
-              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-foreground/75 hover:text-foreground hover:bg-muted transition-colors"
+              className={`hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${iconBtn}`}
               aria-label="Switch language"
             >
               <Globe className="h-4 w-4" />
               {lang === "en" ? "AR" : "EN"}
             </button>
-            <Button asChild size="sm" className="hidden md:inline-flex gradient-brand text-white hover:opacity-95 shadow-emerald">
+            <Button asChild size="sm" className="hidden md:inline-flex gradient-emerald text-white hover:opacity-95 shadow-emerald">
               <Link to="/contact">
                 {t("nav.cta")} <ArrowRight className="ms-1 h-4 w-4 rtl:rotate-180" />
               </Link>
             </Button>
             <button
-              className="lg:hidden p-2 rounded-lg hover:bg-muted"
+              className={`lg:hidden p-2 rounded-lg transition-colors ${iconBtn}`}
               onClick={() => setOpen((v) => !v)}
               aria-label="Menu"
             >

@@ -9,9 +9,9 @@ export const Route = createFileRoute("/industries")({
       { title: "Industries — Jordan Advanced Gate" },
       { name: "description", content: "JAG serves healthcare, banking, education, government, retail, manufacturing, telecom and more with deep vertical expertise." },
       { property: "og:title", content: "Industries — JAG" },
-      { property: "og:url", content: "/industries" },
+      { property: "og:url", content: "https://jagjo.com/industries" },
     ],
-    links: [{ rel: "canonical", href: "/industries" }],
+    links: [{ rel: "canonical", href: "https://jagjo.com/industries" }],
   }),
   component: IndustriesPage,
 });

@@ -9,9 +9,9 @@ export const Route = createFileRoute("/portfolio")({
       { title: "Portfolio — Jordan Advanced Gate" },
       { name: "description", content: "Case studies from JAG: government, healthcare, retail and banking transformation programs." },
       { property: "og:title", content: "Portfolio — JAG" },
-      { property: "og:url", content: "/portfolio" },
+      { property: "og:url", content: "https://jagjo.com/portfolio" },
     ],
-    links: [{ rel: "canonical", href: "/portfolio" }],
+    links: [{ rel: "canonical", href: "https://jagjo.com/portfolio" }],
   }),
   component: PortfolioPage,
 });

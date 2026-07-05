@@ -6,9 +6,9 @@ export const Route = createFileRoute("/privacy")({
     meta: [
       { title: "Privacy Policy — Jordan Advanced Gate" },
       { name: "description", content: "How Jordan Advanced Gate collects, uses and protects personal data." },
-      { property: "og:url", content: "/privacy" },
+      { property: "og:url", content: "https://jagjo.com/privacy" },
     ],
-    links: [{ rel: "canonical", href: "/privacy" }],
+    links: [{ rel: "canonical", href: "https://jagjo.com/privacy" }],
   }),
   component: () => (
     <PageShell>

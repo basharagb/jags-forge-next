@@ -9,9 +9,9 @@ export const Route = createFileRoute("/partners")({
       { title: "Partners — Jordan Advanced Gate" },
       { name: "description", content: "Our global technology partners." },
       { property: "og:title", content: "Partners — JAG" },
-      { property: "og:url", content: "/partners" },
+      { property: "og:url", content: "https://jagjo.com/partners" },
     ],
-    links: [{ rel: "canonical", href: "/partners" }],
+    links: [{ rel: "canonical", href: "https://jagjo.com/partners" }],
   }),
   component: PartnersPage,
 });

@@ -16,7 +16,7 @@ export function Footer() {
       <div className="container-x relative py-20">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <Logo variant="dark" />
+            <Logo variant="dark" size="lg" />
             <p className="mt-5 text-sm text-white/70 max-w-sm leading-relaxed">
               {t("footer.newsletter")}
             </p>

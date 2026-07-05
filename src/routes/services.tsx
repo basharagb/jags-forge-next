@@ -13,9 +13,9 @@ export const Route = createFileRoute("/services")({
       { name: "description", content: "Enterprise IT services from JAG: custom software, AI, cloud, cybersecurity, networking, ERP/CRM, automation and managed services." },
       { property: "og:title", content: "Services — Jordan Advanced Gate" },
       { property: "og:description", content: "End-to-end enterprise IT services: software, AI, cloud, security, ERP, automation, managed services." },
-      { property: "og:url", content: "/services" },
+      { property: "og:url", content: "https://jagjo.com/services" },
     ],
-    links: [{ rel: "canonical", href: "/services" }],
+    links: [{ rel: "canonical", href: "https://jagjo.com/services" }],
   }),
   component: ServicesPage,
 });

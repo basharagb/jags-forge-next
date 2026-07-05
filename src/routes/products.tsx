@@ -9,9 +9,9 @@ export const Route = createFileRoute("/products")({
       { title: "Products — Jordan Advanced Gate" },
       { name: "description", content: "Enterprise software products by JAG: ERP, CRM, HRMS, hospital, school, retail POS, AI chatbot, DMS and more." },
       { property: "og:title", content: "Products — JAG" },
-      { property: "og:url", content: "/products" },
+      { property: "og:url", content: "https://jagjo.com/products" },
     ],
-    links: [{ rel: "canonical", href: "/products" }],
+    links: [{ rel: "canonical", href: "https://jagjo.com/products" }],
   }),
   component: ProductsPage,
 });
