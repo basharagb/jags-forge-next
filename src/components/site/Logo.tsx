@@ -28,14 +28,14 @@ export function Logo({
       </div>
       <div className="flex flex-col leading-tight">
         <span
-          className={`${name} font-bold tracking-tight ${
+          className={`${name} font-bold tracking-tight whitespace-nowrap ${
             variant === "light" ? "text-foreground" : "text-white"
           }`}
         >
           Jordan Advanced Gate
         </span>
         <span
-          className={`text-[10px] font-semibold uppercase tracking-[0.16em] ${
+          className={`text-[10px] font-semibold uppercase tracking-[0.16em] whitespace-nowrap ${
             variant === "light" ? "text-[var(--emerald-brand)]" : "text-[var(--emerald-glow)]"
           }`}
         >
