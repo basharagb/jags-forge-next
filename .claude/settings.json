@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sips -s format png dess.pdf --out /private/tmp/claude-501/-Users-macbookair-Downloads-projects-jags-forge-next/45ec52d8-7fd3-4ee4-862c-7c3722f2cf8b/scratchpad/dess.png)",
+      "Bash(bun -v)",
+      "Bash(echo \"bun: $\\(bun -v \\)\")",
+      "Bash(curl -fsSL https://bun.sh/install)",
+      "Bash(bash)",
+      "Bash(~/.bun/bin/bun -v)",
+      "Bash(grep -oE \">[A-Za-z ]{15,}<\" dist/client/about/index.html)",
+      "Bash(xxd)",
+      "Bash(sips -g pixelWidth -g pixelHeight logo.jpg)",
+      "Bash(sips -g pixelWidth -g pixelHeight public/favicon.ico)"
+    ]
+  }
+}

@@ -13,7 +13,6 @@ import { Route as ThankYouRouteImport } from './routes/thank-you'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SolutionsRouteImport } from './routes/solutions'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as ProductsRouteImport } from './routes/products'
@@ -48,11 +47,6 @@ const TermsRoute = TermsRouteImport.update({
 const SolutionsRoute = SolutionsRouteImport.update({
   id: '/solutions',
   path: '/solutions',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesRoute = ServicesRouteImport.update({
@@ -147,7 +141,6 @@ export interface FileRoutesByFullPath {
   '/products': typeof ProductsRoute
   '/projects': typeof ProjectsRoute
   '/services': typeof ServicesRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/solutions': typeof SolutionsRoute
   '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
@@ -169,7 +162,6 @@ export interface FileRoutesByTo {
   '/products': typeof ProductsRoute
   '/projects': typeof ProjectsRoute
   '/services': typeof ServicesRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/solutions': typeof SolutionsRoute
   '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
@@ -192,7 +184,6 @@ export interface FileRoutesById {
   '/products': typeof ProductsRoute
   '/projects': typeof ProjectsRoute
   '/services': typeof ServicesRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/solutions': typeof SolutionsRoute
   '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
@@ -216,7 +207,6 @@ export interface FileRouteTypes {
     | '/products'
     | '/projects'
     | '/services'
-    | '/sitemap.xml'
     | '/solutions'
     | '/terms'
     | '/testimonials'
@@ -238,7 +228,6 @@ export interface FileRouteTypes {
     | '/products'
     | '/projects'
     | '/services'
-    | '/sitemap.xml'
     | '/solutions'
     | '/terms'
     | '/testimonials'
@@ -260,7 +249,6 @@ export interface FileRouteTypes {
     | '/products'
     | '/projects'
     | '/services'
-    | '/sitemap.xml'
     | '/solutions'
     | '/terms'
     | '/testimonials'
@@ -283,7 +271,6 @@ export interface RootRouteChildren {
   ProductsRoute: typeof ProductsRoute
   ProjectsRoute: typeof ProjectsRoute
   ServicesRoute: typeof ServicesRoute
-  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SolutionsRoute: typeof SolutionsRoute
   TermsRoute: typeof TermsRoute
   TestimonialsRoute: typeof TestimonialsRoute
@@ -318,13 +305,6 @@ declare module '@tanstack/react-router' {
       path: '/solutions'
       fullPath: '/solutions'
       preLoaderRoute: typeof SolutionsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services': {
@@ -451,7 +431,6 @@ const rootRouteChildren: RootRouteChildren = {
   ProductsRoute: ProductsRoute,
   ProjectsRoute: ProjectsRoute,
   ServicesRoute: ServicesRoute,
-  SitemapDotxmlRoute: SitemapDotxmlRoute,
   SolutionsRoute: SolutionsRoute,
   TermsRoute: TermsRoute,
   TestimonialsRoute: TestimonialsRoute,
