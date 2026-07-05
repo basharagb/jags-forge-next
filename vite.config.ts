@@ -6,9 +6,12 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-// Every marketing route is static, so we prerender the whole site to plain HTML
-// (best-in-class SEO + works on any static/Apache host) and ship an SPA shell as
-// a fallback for client navigation. Deploy target: static files under jagjo.com.
+// Static export is OPT-IN via STATIC_EXPORT=1. This keeps the default build
+// (the one Lovable runs) on its normal Cloudflare/Nitro path, while our own
+// self-host deploy to jagjo.com runs `STATIC_EXPORT=1 bun run build` to
+// prerender every route to plain HTML for a static Apache host.
+const STATIC = process.env.STATIC_EXPORT === "1";
+
 const ROUTES = [
   "/", "/about", "/services", "/solutions", "/industries", "/products",
   "/portfolio", "/projects", "/case-studies", "/clients", "/partners",
@@ -16,20 +19,24 @@ const ROUTES = [
   "/privacy", "/terms", "/thank-you",
 ];
 
+const staticStart = STATIC
+  ? {
+      prerender: { enabled: true, crawlLinks: true, autoStaticPathsDiscovery: true, failOnError: false },
+      pages: ROUTES.map((path) => ({
+        path,
+        prerender: { enabled: true },
+        sitemap: { priority: path === "/" ? 1.0 : 0.7, changefreq: "weekly" as const },
+      })),
+      sitemap: { enabled: true, host: "https://jagjo.com" },
+    }
+  : {};
+
 export default defineConfig({
-  // Disable Nitro: we want TanStack Start's native prerender + SPA output in dist/,
-  // which we ship as plain static files to the Apache/LiteSpeed host (jagjo.com).
-  nitro: false,
+  // Skip Nitro only for our static export; leave Lovable's build untouched.
+  nitro: STATIC ? false : undefined,
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-    // nitro/vite builds from this
     server: { entry: "server" },
-    prerender: { enabled: true, crawlLinks: true, autoStaticPathsDiscovery: true, failOnError: false },
-    pages: ROUTES.map((path) => ({
-      path,
-      prerender: { enabled: true },
-      sitemap: { priority: path === "/" ? 1.0 : 0.7, changefreq: "weekly" },
-    })),
-    sitemap: { enabled: true, host: "https://jagjo.com" },
+    ...staticStart,
   },
 });
