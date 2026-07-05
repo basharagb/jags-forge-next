@@ -35,7 +35,7 @@ export function Logo({
           Jordan Advanced Gate
         </span>
         <span
-          className={`text-[10px] font-semibold uppercase tracking-[0.16em] whitespace-nowrap ${
+          className={`hidden sm:block text-[10px] font-semibold uppercase tracking-[0.16em] whitespace-nowrap ${
             variant === "light" ? "text-[var(--emerald-brand)]" : "text-[var(--emerald-glow)]"
           }`}
         >
