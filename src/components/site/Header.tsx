@@ -77,7 +77,7 @@ export function Header() {
               <Globe className="h-4 w-4" />
               {lang === "en" ? "AR" : "EN"}
             </button>
-            <Button asChild size="sm" className="hidden md:inline-flex gradient-emerald text-white hover:opacity-95 shadow-emerald">
+            <Button asChild size="sm" className="sheen hidden md:inline-flex gradient-emerald text-white hover:opacity-95 hover:scale-[1.04] transition-transform shadow-emerald">
               <Link to="/contact">
                 {t("nav.cta")} <ArrowRight className="ms-1 h-4 w-4 rtl:rotate-180" />
               </Link>

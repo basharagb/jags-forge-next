@@ -88,7 +88,7 @@ function Hero() {
 
         <Reveal delay={0.3}>
           <div className="mt-10 flex flex-wrap items-center gap-3">
-            <Button asChild size="lg" className="gradient-emerald text-white shadow-emerald hover:opacity-95 h-12 px-6">
+            <Button asChild size="lg" className="sheen gradient-emerald text-white shadow-emerald hover:opacity-95 hover:scale-[1.03] transition-transform h-12 px-6">
               <Link to="/contact">
                 {t("hero.cta1")} <ArrowRight className="ms-2 h-4 w-4 rtl:rotate-180" />
               </Link>
@@ -184,7 +184,7 @@ function Services() {
               <article className="premium-card group h-full p-6 relative overflow-hidden">
                 <div className="absolute -top-16 -right-16 h-40 w-40 rounded-full bg-[var(--emerald-glow)]/10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="relative">
-                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl gradient-brand text-white shadow-emerald">
+                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl gradient-brand text-white shadow-emerald transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6">
                     <Icon className="h-5 w-5" />
                   </div>
                   <div className="mt-5 flex items-center justify-between">
@@ -369,7 +369,7 @@ function FinalCTA() {
           <p className="mt-4 text-lg text-white/75 max-w-xl">{t("cta.sub")}</p>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button asChild size="lg" className="gradient-emerald text-white shadow-emerald h-12 px-6">
+            <Button asChild size="lg" className="sheen gradient-emerald text-white shadow-emerald hover:scale-[1.03] transition-transform h-12 px-6">
               <Link to="/contact">{t("cta.button")} <ArrowRight className="ms-2 h-4 w-4 rtl:rotate-180" /></Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="h-12 px-6 border-white/20 bg-white/5 text-white hover:bg-white/10 hover:text-white">
