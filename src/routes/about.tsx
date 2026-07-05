@@ -35,24 +35,52 @@ const TIMELINE = [
 ];
 
 function AboutPage() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   return (
     <SiteShell>
-      <section className="relative overflow-hidden gradient-hero text-white -mt-24 pt-40 pb-24">
+      <section className="relative overflow-hidden gradient-hero text-white -mt-24 pt-36 sm:pt-40 pb-20 sm:pb-24">
         <div className="absolute inset-0 grid-bg opacity-30" />
         <div className="absolute -top-20 -right-20 w-[500px] h-[500px] rounded-full bg-[var(--emerald-brand)]/20 blur-3xl" />
         <div className="container-x relative">
           <Reveal>
             <p className="text-xs uppercase tracking-[0.24em] font-semibold text-[var(--emerald-glow)]">About JAG</p>
-            <h1 className="mt-4 text-4xl md:text-6xl font-bold tracking-tight max-w-4xl leading-[1.05]">
+            <h1
+              className={`mt-4 text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight max-w-4xl ${
+                lang === "ar" ? "leading-[1.35] pb-1" : "leading-[1.05]"
+              }`}
+            >
               {t("about.title")}
             </h1>
-            <p className="mt-6 max-w-2xl text-lg text-white/75 leading-relaxed">{t("about.sub")}</p>
+            <p className="mt-6 max-w-2xl text-base sm:text-lg text-white/75 leading-relaxed">{t("about.sub")}</p>
           </Reveal>
         </div>
       </section>
 
-      <section className="container-x py-24 grid lg:grid-cols-2 gap-10">
+      {/* Brand intro — logo + who we are */}
+      <section className="container-x py-16 sm:py-24">
+        <div className="grid items-center gap-10 lg:grid-cols-5 lg:gap-14">
+          <Reveal className="lg:col-span-2">
+            <div className="grid place-items-center rounded-3xl bg-white p-8 sm:p-12 ring-1 ring-black/5 shadow-elegant">
+              <img
+                src="/jag-logo.jpg"
+                alt="Jordan Advanced Gate — البوابة المتقدمة الأردنية logo"
+                width={1254}
+                height={1254}
+                className="h-auto w-full max-w-[280px]"
+              />
+            </div>
+          </Reveal>
+          <Reveal delay={0.1} className="lg:col-span-3">
+            <p className="text-xs uppercase tracking-[0.24em] font-semibold text-[var(--emerald-brand)]">
+              {t("about.leadTitle")}
+            </p>
+            <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">{t("brand.name")}</h2>
+            <p className="mt-5 text-base sm:text-lg text-muted-foreground leading-relaxed">{t("about.lead")}</p>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="container-x pb-16 sm:pb-24 grid lg:grid-cols-2 gap-8 sm:gap-10">
         {[
           { icon: Target, title: t("about.mission"), body: t("about.missionText") },
           { icon: Compass, title: t("about.vision"), body: t("about.visionText") },

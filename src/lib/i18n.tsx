@@ -5,6 +5,8 @@ export type Lang = "en" | "ar";
 type Dict = Record<string, string>;
 
 const en: Dict = {
+  "brand.name": "Jordan Advanced Gate",
+  "brand.tagline": "IT Solutions & Digital Transformation",
   "nav.home": "Home",
   "nav.about": "About",
   "nav.services": "Services",
@@ -63,6 +65,9 @@ const en: Dict = {
   "about.title": "Building the digital gate to a smarter Jordan — and beyond.",
   "about.sub":
     "Founded to bridge global engineering standards with the ambitions of regional enterprises, JAG operates at the intersection of strategy, software and infrastructure.",
+  "about.leadTitle": "Who we are",
+  "about.lead":
+    "Jordan Advanced Gate (JAG) is a Jordanian technology company headquartered in Amman, delivering enterprise software, artificial intelligence, cloud, cybersecurity and digital transformation to governments, banks, universities and global brands. Since 2011 our certified engineers have shipped 320+ projects across 22 countries — combining international engineering standards with deep regional and bilingual (Arabic & English) expertise. From custom platforms and ERP/CRM to AI automation and 24/7 managed security, we help organizations run, grow and reinvent themselves with technology built for enterprise scale.",
   "about.mission": "Our mission",
   "about.missionText":
     "To help organizations run, grow and reinvent themselves with resilient, secure and human-centered technology.",
@@ -83,6 +88,8 @@ const en: Dict = {
 };
 
 const ar: Dict = {
+  "brand.name": "البوابة المتقدمة الأردنية",
+  "brand.tagline": "حلول تقنية المعلومات والتحول الرقمي",
   "nav.home": "الرئيسية",
   "nav.about": "من نحن",
   "nav.services": "الخدمات",
@@ -141,6 +148,9 @@ const ar: Dict = {
   "about.title": "نبني البوابة الرقمية لأردن أكثر ذكاءً — وما بعده.",
   "about.sub":
     "تأسست البوابة المتقدمة الأردنية لتجسير الفجوة بين المعايير الهندسية العالمية وطموحات المؤسسات الإقليمية.",
+  "about.leadTitle": "من نحن",
+  "about.lead":
+    "البوابة المتقدمة الأردنية (JAG) شركة تقنية أردنية مقرها عمّان، تقدّم برمجيات المؤسسات والذكاء الاصطناعي والحوسبة السحابية والأمن السيبراني والتحول الرقمي للحكومات والبنوك والجامعات والعلامات التجارية العالمية. منذ عام 2011 أنجز مهندسونا المعتمدون أكثر من 320 مشروعاً في 22 دولة — بدمج المعايير الهندسية العالمية مع خبرة إقليمية عميقة وثنائية اللغة (عربي وإنجليزي). من المنصات المخصصة وأنظمة ERP/CRM إلى أتمتة الذكاء الاصطناعي والأمن المُدار على مدار الساعة، نساعد المؤسسات على التشغيل والنمو وإعادة الابتكار بتقنيات مصمّمة على مستوى المؤسسات.",
   "about.mission": "رسالتنا",
   "about.missionText":
     "مساعدة المؤسسات على التشغيل والنمو وإعادة الاختراع عبر تقنيات مرنة وآمنة تركّز على الإنسان.",

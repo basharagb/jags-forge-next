@@ -68,9 +68,15 @@ function Hero() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <h1 className="mt-6 text-[clamp(2.5rem,6vw,5.5rem)] font-bold leading-[1.02] tracking-tight max-w-5xl">
+          <h1
+            className={`mt-6 font-bold tracking-tight max-w-5xl ${
+              lang === "ar"
+                ? "text-[clamp(2.25rem,6vw,5rem)] leading-[1.35] pb-1"
+                : "text-[clamp(2.25rem,6vw,5.5rem)] leading-[1.05]"
+            }`}
+          >
             <span className="block text-white">{t("hero.title.a")}</span>
-            <span className="block text-gradient">{t("hero.title.b")}</span>
+            <span className="block text-gradient pb-1.5">{t("hero.title.b")}</span>
           </h1>
         </Reveal>
 
