@@ -17,7 +17,10 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <Logo variant="dark" size="lg" />
-            <p className="mt-5 text-sm text-white/70 max-w-sm leading-relaxed">
+            <p className="mt-5 text-base font-medium text-white/90 max-w-sm leading-relaxed">
+              {t("brand.slogan")}
+            </p>
+            <p className="mt-3 text-sm text-white/60 max-w-sm leading-relaxed">
               {t("footer.newsletter")}
             </p>
             <form className="mt-4 flex gap-2 max-w-sm" onSubmit={(e) => e.preventDefault()}>

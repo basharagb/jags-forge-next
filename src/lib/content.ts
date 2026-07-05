@@ -74,7 +74,10 @@ export const TESTIMONIALS = [
   { name: "Salem Al-Otaibi", role: "Director of IT, Ministry of Digital Economy", quote: "A true partner. Their zero-trust migration was seamless and audited against the strictest standards." },
 ];
 
-export const PARTNERS = ["Microsoft", "AWS", "Cisco", "Fortinet", "Oracle", "SAP", "Google Cloud", "VMware", "Red Hat", "Palo Alto"];
+export const PARTNERS = [
+  "Arab University College of Technology", "DISTY", "Dubai Style", "Razeen",
+  "Talib", "Giessen", "Elite Shooter Center", "JODIY", "Elite Group", "Six Yards MMC",
+];
 
 export const SERVICE_ICONS_FULL = [
   Code2, Cloud, ShieldCheck, Brain, Network, Cpu, Database, Smartphone,

@@ -130,7 +130,7 @@ function TrustBar() {
     <section className="border-y border-border bg-surface-2/50 overflow-hidden">
       <div className="container-x py-8">
         <p className="text-center text-xs uppercase tracking-[0.24em] text-muted-foreground font-semibold">
-          Trusted by ministries, banks, universities & global enterprises
+          Trusted by universities, retailers & growing enterprises across the region
         </p>
         <div className="mt-6 relative overflow-hidden mask-fade-b">
           <div className="flex gap-14 animate-marquee whitespace-nowrap">
