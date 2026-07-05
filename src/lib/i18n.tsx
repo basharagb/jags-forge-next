@@ -95,6 +95,10 @@ const en: Dict = {
   "footer.subscribe": "Subscribe",
   "footer.email": "Email address",
   "footer.rights": "All rights reserved.",
+  "footer.trusted": "Your trusted technology partner",
+  "footer.explore": "Explore",
+  "legal.privacy": "Privacy Policy",
+  "legal.terms": "Terms of Service",
 
   "about.title": "Building the digital gate to a smarter Jordan — and beyond.",
   "about.sub":
@@ -212,6 +216,10 @@ const ar: Dict = {
   "footer.subscribe": "اشتراك",
   "footer.email": "البريد الإلكتروني",
   "footer.rights": "جميع الحقوق محفوظة.",
+  "footer.trusted": "شريكك التقني الموثوق",
+  "footer.explore": "استكشف",
+  "legal.privacy": "سياسة الخصوصية",
+  "legal.terms": "الشروط والأحكام",
 
   "about.title": "نبني البوابة الرقمية لأردن أكثر ذكاءً — وما بعده.",
   "about.sub":

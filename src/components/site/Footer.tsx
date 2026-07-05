@@ -1,4 +1,3 @@
-import { Link } from "@tanstack/react-router";
 import { Linkedin, Facebook, Instagram, Twitter, Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import { Logo } from "./Logo";
 import { useI18n } from "@/lib/i18n";
@@ -56,40 +55,30 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-8 text-sm">
+          <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-8 text-sm">
             <FooterCol
-              title={t("footer.company")}
+              title={t("footer.explore")}
               links={[
-                ["About", "/about"],
-                ["Careers", "/careers"],
-                ["Partners", "/partners"],
-                ["Clients", "/clients"],
+                [t("label.about"), "/#about"],
+                [t("label.why"), "/#why"],
+                [t("label.clients"), "/#clients"],
+                [t("label.contact"), "/#contact"],
               ]}
             />
             <FooterCol
               title={t("footer.services")}
               links={[
-                ["Software Development", "/services"],
-                ["AI & Automation", "/services"],
-                ["Cloud & DevOps", "/services"],
-                ["Cybersecurity", "/services"],
-              ]}
-            />
-            <FooterCol
-              title={t("footer.resources")}
-              links={[
-                ["Insights", "/blog"],
-                ["Case Studies", "/case-studies"],
-                ["Portfolio", "/portfolio"],
-                ["FAQ", "/faq"],
+                [t("label.services"), "/#services"],
+                [t("label.solutions"), "/#solutions"],
+                [t("label.industries"), "/#industries"],
+                [t("label.stack"), "/#solutions"],
               ]}
             />
             <FooterCol
               title={t("footer.legal")}
               links={[
-                ["Privacy Policy", "/privacy"],
-                ["Terms of Service", "/terms"],
-                ["Contact", "/contact"],
+                [t("legal.privacy"), "/privacy"],
+                [t("legal.terms"), "/terms"],
               ]}
             />
           </div>
@@ -114,7 +103,7 @@ export function Footer() {
           <p>© {year} Jordan Advanced Gate. {t("footer.rights")}</p>
           <p className="flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-[var(--emerald-glow)] animate-pulse" />
-            Trusted engineering partner
+            {t("footer.trusted")}
             <ArrowRight className="h-3 w-3 rtl:rotate-180" />
           </p>
         </div>
@@ -130,9 +119,9 @@ function FooterCol({ title, links }: { title: string; links: [string, string][] 
       <ul className="mt-4 space-y-3">
         {links.map(([label, href]) => (
           <li key={href + label}>
-            <Link to={href} className="text-white/80 hover:text-white transition-colors">
+            <a href={href} className="text-white/80 hover:text-white hover:ps-1 transition-all">
               {label}
-            </Link>
+            </a>
           </li>
         ))}
       </ul>
