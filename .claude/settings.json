@@ -13,7 +13,16 @@
       "Bash(sips -g pixelWidth -g pixelHeight public/favicon.ico)",
       "Bash(python3 -c \"import PIL; print\\('PIL', PIL.__version__\\)\")",
       "Bash(sed -n '/head:/,/}\\),/p' src/routes/services.tsx)",
-      "Bash(python3)"
+      "Bash(python3)",
+      "Read(//Applications/Google Chrome.app/Contents/MacOS/**)",
+      "Read(//Applications/Chromium.app/Contents/MacOS/**)",
+      "Read(//Applications/Microsoft Edge.app/Contents/MacOS/**)",
+      "Read(//System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app/**)",
+      "Bash(python3 -m http.server 8099)",
+      "Bash(echo \"server pid $!\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8099/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8099/jag-mark.png)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8099/og-image.png)"
     ]
   }
 }
