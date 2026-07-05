@@ -49,9 +49,9 @@ const en: Dict = {
 
   "testimonials.title": "Trusted by leaders",
 
-  "label.about": "About us",
+  "label.about": "About",
   "label.services": "Services",
-  "label.solutions": "Products & solutions",
+  "label.solutions": "Solutions",
   "label.why": "Why JAG",
   "label.industries": "Industries",
   "label.stack": "Stack",

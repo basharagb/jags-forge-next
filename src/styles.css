@@ -167,6 +167,17 @@
     letter-spacing: 0;
   }
 
+  /* Arabic is cursive — letter-spacing (from uppercase eyebrow labels etc.)
+     disconnects the glyphs, so zero it out for all text in RTL. */
+  html[dir="rtl"] p,
+  html[dir="rtl"] span,
+  html[dir="rtl"] a,
+  html[dir="rtl"] li,
+  html[dir="rtl"] button,
+  html[dir="rtl"] label {
+    letter-spacing: 0;
+  }
+
   ::selection {
     background: color-mix(in oklab, var(--emerald-brand) 40%, transparent);
     color: var(--navy-deep);
