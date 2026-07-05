@@ -307,7 +307,7 @@ function Solutions() {
                   <ul className="mt-4 space-y-3">
                     {items.map((it) => (
                       <li key={it} className="flex items-start gap-2.5 text-sm text-foreground/80">
-                        <CheckCircle2 className="h-4.5 w-4.5 mt-0.5 shrink-0 text-[var(--emerald-brand)]" />
+                        <CheckCircle2 className="h-5 w-5 mt-0.5 shrink-0 text-[var(--emerald-brand)]" />
                         <span>{it}</span>
                       </li>
                     ))}
