@@ -49,6 +49,39 @@ const en: Dict = {
 
   "testimonials.title": "Trusted by leaders",
 
+  "label.about": "About us",
+  "label.services": "Services",
+  "label.solutions": "Products & solutions",
+  "label.why": "Why JAG",
+  "label.industries": "Industries",
+  "label.stack": "Stack",
+  "label.clients": "Clients",
+  "label.testimonials": "Testimonials",
+  "label.contact": "Contact",
+  "label.values": "Core values",
+
+  "btn.learnMore": "Learn more",
+  "btn.allServices": "Explore all services",
+  "btn.seeWork": "See our clients",
+  "btn.talk": "Talk to our team",
+
+  "solutions.title": "Our products & technical solutions",
+  "solutions.sub": "Integrated software, infrastructure and AI — delivered from a single, reliable partner.",
+
+  "clients.title": "Trusted by teams across the region",
+  "clients.sub": "From universities and retailers to growing enterprises, organizations rely on JAG to run and grow.",
+  "trustbar": "Trusted by universities, retailers & growing enterprises",
+
+  "why.pillTitle": "Why choose our technical solutions?",
+
+  "badge.iso": "ISO 27001",
+  "badge.countries": "22 countries",
+  "badge.support": "24/7 support",
+  "badge.csat": "99% CSAT",
+
+  "cta.eyebrow": "Ready when you are",
+  "hero.badge": "Enterprise-ready",
+
   "cta.title": "Let's build what's next.",
   "cta.sub": "Book a 30-minute strategy session with our solutions team.",
   "cta.button": "Start a project",

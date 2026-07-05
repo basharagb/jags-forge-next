@@ -25,12 +25,60 @@ export const SERVICES: Service[] = [
 ];
 
 export const WHY = [
-  { icon: Award, title: "Enterprise-grade delivery", desc: "Frameworks built for regulated, mission-critical environments." },
-  { icon: Users2, title: "Certified engineers", desc: "AWS, Azure, Cisco, Fortinet, Oracle and Microsoft certified specialists." },
-  { icon: Rocket, title: "Fast time-to-value", desc: "Agile squads with a 6-week discovery-to-prototype default." },
-  { icon: Headphones, title: "24/7 support", desc: "Follow-the-sun SLA-backed managed services." },
-  { icon: Sparkles, title: "Design-led engineering", desc: "Human-centered products that people actually use." },
-  { icon: Lock, title: "Security by default", desc: "OWASP, ISO 27001 and zero-trust practices baked in." },
+  {
+    icon: Award,
+    title: "Specialized technical expertise",
+    titleAr: "خبرات تقنية متخصصة",
+    desc: "Practical solutions built on a real understanding of the needs of companies and organizations.",
+    descAr: "نقدّم حلولاً عملية مبنية على فهم احتياجات الشركات والمؤسسات.",
+  },
+  {
+    icon: Layers,
+    title: "Integrated solutions, one source",
+    titleAr: "حلول متكاملة من مصدر واحد",
+    desc: "Software, networks, smart systems and technical support within a single ecosystem.",
+    descAr: "نوفّر البرمجيات، الشبكات، الأنظمة الذكية، والدعم الفني ضمن منظومة واحدة.",
+  },
+  {
+    icon: Rocket,
+    title: "Innovation & scalability",
+    titleAr: "ابتكار وقابلية للتطوير",
+    desc: "Modern, scalable technologies that grow with your business and future needs.",
+    descAr: "نعتمد تقنيات حديثة قابلة للتوسع مع نمو أعمالك واحتياجاتك المستقبلية.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Commitment to quality & support",
+    titleAr: "التزام بالجودة والدعم",
+    desc: "On-time delivery, execution quality and fast response after project handover.",
+    descAr: "نلتزم بالمواعيد، جودة التنفيذ، وسرعة الاستجابة بعد تسليم المشروع.",
+  },
+];
+
+// Product & solution groups — from the JAG company profile
+export type SolutionGroup = { icon: LucideIcon; title: string; titleAr: string; items: string[]; itemsAr: string[] };
+export const SOLUTIONS: SolutionGroup[] = [
+  {
+    icon: Code2,
+    title: "Software Solutions",
+    titleAr: "حلول البرمجيات",
+    items: ["Web & mobile app development", "ERP enterprise systems", "CRM customer systems", "Custom business apps"],
+    itemsAr: ["تطوير تطبيقات الويب والموبايل", "أنظمة إدارة المؤسسات ERP", "أنظمة إدارة العملاء CRM", "تطبيقات الأعمال المخصصة"],
+  },
+  {
+    icon: Network,
+    title: "Networks & Infrastructure",
+    titleAr: "الشبكات والبنية التحتية",
+    items: ["Network design & implementation", "Servers & data centers", "Enterprise Wi-Fi systems"],
+    itemsAr: ["تصميم وتنفيذ الشبكات", "الخوادم ومراكز البيانات", "أنظمة الواي فاي المؤسسية"],
+  },
+  {
+    icon: Brain,
+    title: "AI Solutions",
+    titleAr: "حلول الذكاء الاصطناعي",
+    items: ["Smart camera systems", "Image & video analysis", "Smart assistants & customer service"],
+    itemsAr: ["أنظمة كاميرات ذكية", "تحليل الصور والفيديو", "المساعدات الذكية وخدمة العملاء"],
+  },
 ];
 
 export const STATS = [
@@ -43,22 +91,22 @@ export const STATS = [
 ];
 
 export const INDUSTRIES = [
-  { icon: Heart, name: "Healthcare" },
-  { icon: GraduationCap, name: "Education" },
-  { icon: ShoppingBag, name: "Retail" },
-  { icon: Landmark, name: "Government" },
-  { icon: Wallet, name: "Banking" },
-  { icon: ShieldCheck, name: "Insurance" },
-  { icon: Factory, name: "Manufacturing" },
-  { icon: Hotel, name: "Hospitality" },
-  { icon: Truck, name: "Logistics" },
-  { icon: Home, name: "Real Estate" },
-  { icon: HardHat, name: "Construction" },
-  { icon: Zap, name: "Energy" },
-  { icon: Radio, name: "Telecom" },
-  { icon: Package, name: "E-commerce" },
-  { icon: Bus, name: "Transportation" },
-  { icon: MapPinIcon, name: "Smart Cities" },
+  { icon: Heart, name: "Healthcare", nameAr: "الرعاية الصحية" },
+  { icon: GraduationCap, name: "Education", nameAr: "التعليم" },
+  { icon: ShoppingBag, name: "Retail", nameAr: "التجزئة" },
+  { icon: Landmark, name: "Government", nameAr: "القطاع الحكومي" },
+  { icon: Wallet, name: "Banking", nameAr: "البنوك" },
+  { icon: ShieldCheck, name: "Insurance", nameAr: "التأمين" },
+  { icon: Factory, name: "Manufacturing", nameAr: "التصنيع" },
+  { icon: Hotel, name: "Hospitality", nameAr: "الضيافة" },
+  { icon: Truck, name: "Logistics", nameAr: "الخدمات اللوجستية" },
+  { icon: Home, name: "Real Estate", nameAr: "العقارات" },
+  { icon: HardHat, name: "Construction", nameAr: "الإنشاءات" },
+  { icon: Zap, name: "Energy", nameAr: "الطاقة" },
+  { icon: Radio, name: "Telecom", nameAr: "الاتصالات" },
+  { icon: Package, name: "E-commerce", nameAr: "التجارة الإلكترونية" },
+  { icon: Bus, name: "Transportation", nameAr: "النقل" },
+  { icon: MapPinIcon, name: "Smart Cities", nameAr: "المدن الذكية" },
 ];
 
 export const TECHS = [
@@ -69,9 +117,24 @@ export const TECHS = [
 ];
 
 export const TESTIMONIALS = [
-  { name: "Dr. Rania Al-Sharif", role: "CIO, King Abdullah University Hospital", quote: "JAG's platform reduced our patient-onboarding time by 62%. The engineering discipline is on par with the best global vendors we've worked with." },
-  { name: "Marcus Whitfield", role: "Head of Digital, Emirates Retail Group", quote: "From ESL to POS to analytics, JAG delivered a unified retail stack across 220 stores in nine months. Exceptional." },
-  { name: "Salem Al-Otaibi", role: "Director of IT, Ministry of Digital Economy", quote: "A true partner. Their zero-trust migration was seamless and audited against the strictest standards." },
+  {
+    name: "Dr. Rania Al-Sharif", nameAr: "د. رانيا الشريف",
+    role: "CIO, University Hospital", roleAr: "مديرة تقنية المعلومات، مستشفى جامعي",
+    quote: "JAG's platform reduced our patient-onboarding time by 62%. The engineering discipline is on par with the best global vendors we've worked with.",
+    quoteAr: "قلّصت منصة البوابة المتقدمة الأردنية وقت تسجيل مرضانا بنسبة 62%. الانضباط الهندسي لديهم يضاهي أفضل المزوّدين العالميين.",
+  },
+  {
+    name: "Marcus Whitfield", nameAr: "ماركوس ويتفيلد",
+    role: "Head of Digital, Retail Group", roleAr: "مدير التحول الرقمي، مجموعة تجزئة",
+    quote: "From ESL to POS to analytics, JAG delivered a unified retail stack across 220 stores in nine months. Exceptional.",
+    quoteAr: "من بطاقات الأسعار الإلكترونية إلى نقاط البيع والتحليلات، سلّمت البوابة منظومة تجزئة موحّدة عبر 220 متجراً خلال تسعة أشهر. عمل استثنائي.",
+  },
+  {
+    name: "Salem Al-Otaibi", nameAr: "سالم العتيبي",
+    role: "Director of IT, Public Sector", roleAr: "مدير تقنية المعلومات، القطاع العام",
+    quote: "A true partner. Their zero-trust migration was seamless and audited against the strictest standards.",
+    quoteAr: "شريك حقيقي. تنفيذ بنية الثقة الصفرية لديهم كان سلساً ومُدقّقاً وفق أصرم المعايير.",
+  },
 ];
 
 export const PARTNERS = [
