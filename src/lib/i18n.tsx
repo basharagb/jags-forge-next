@@ -91,6 +91,7 @@ const en: Dict = {
 const ar: Dict = {
   "brand.name": "البوابة المتقدمة الأردنية",
   "brand.tagline": "حلول تقنية المعلومات والتحول الرقمي",
+  "brand.slogan": "شريكك في التحول الرقمي وتطوير الأعمال",
   "nav.home": "الرئيسية",
   "nav.about": "من نحن",
   "nav.services": "الخدمات",
