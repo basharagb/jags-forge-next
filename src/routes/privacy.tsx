@@ -27,10 +27,10 @@ export const Route = createFileRoute("/privacy")({
           Inquiry data is retained only as long as needed for the purpose collected, or as required by applicable law.
         </Section>
         <Section title="Your rights">
-          You may request access, correction, or deletion of your personal data by contacting info@jag.jo.
+          You may request access, correction, or deletion of your personal data by contacting info@jagjo.com.
         </Section>
         <Section title="Contact">
-          For privacy questions, contact info@jag.jo.
+          For privacy questions, contact info@jagjo.com.
         </Section>
       </section>
     </PageShell>

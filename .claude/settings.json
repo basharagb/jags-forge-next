@@ -35,7 +35,11 @@
       "Skill(artifact-design)",
       "Skill(artifact-design:*)",
       "Bash(git check-ignore *)",
-      "Bash(git rev-list *)"
+      "Bash(git rev-list *)",
+      "Bash(curl -sSk -o /dev/null -w \"home: %{http_code}\\\\n\" https://jagjo.com/ --max-time 20)",
+      "Bash(curl -sSk -o /dev/null -w \"privacy: %{http_code} | \" https://jagjo.com/privacy --max-time 20)",
+      "Bash(curl -sSk -o /dev/null -w \"terms: %{http_code}\\\\n\" https://jagjo.com/terms --max-time 20)",
+      "Bash(python3 -c ' *)"
     ]
   }
 }

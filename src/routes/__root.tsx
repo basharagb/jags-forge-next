@@ -3,6 +3,7 @@ import {
   Outlet,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
   Link,
@@ -11,7 +12,7 @@ import { useEffect, useState, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { I18nProvider } from "@/lib/i18n";
+import { I18nProvider, langFromPathname } from "@/lib/i18n";
 
 function NotFoundComponent() {
   return (
@@ -30,12 +31,12 @@ function NotFoundComponent() {
           >
             Return home
           </Link>
-          <Link
-            to="/contact"
+          <a
+            href="/#contact"
             className="inline-flex items-center justify-center rounded-lg border border-border bg-background px-5 py-2.5 text-sm font-medium hover:bg-muted transition"
           >
             Contact us
-          </Link>
+          </a>
         </div>
       </div>
     </div>
@@ -110,6 +111,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:description", content: DESCRIPTION },
       { name: "twitter:image", content: OG_IMAGE },
     ],
+    // NOTE: no Organization/WebSite/FAQPage JSON-LD here. TanStack Router
+    // dedupes <meta> tags by name/property (child route overrides root
+    // silently), but does NOT dedupe raw <script> tags by any semantic key —
+    // if both root and a route emitted a JSON-LD graph, both would render,
+    // producing two conflicting Organization declarations on every page. Each
+    // language homepage (index.tsx / ar.tsx) owns its complete graph via
+    // src/lib/seo.ts instead, asserting its own language's name as primary.
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
@@ -121,54 +129,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@300;400;500;600;700;800&display=swap",
       },
     ],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": "Organization",
-              "@id": `${SITE_URL}/#organization`,
-              name: "Jordan Advanced Gate",
-              alternateName: ["JAG", "البوابة المتقدمة الأردنية"],
-              description: "IT Solutions & Digital Transformation",
-              url: SITE_URL,
-              logo: `${SITE_URL}/jag-mark.png`,
-              image: OG_IMAGE,
-              email: "info@jag.jo",
-              telephone: "+962-7-7091-1991",
-              foundingLocation: "Amman, Jordan",
-              slogan: "Your Partner in Digital Transformation & Business Development",
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "Amman",
-                addressCountry: "JO",
-              },
-              contactPoint: {
-                "@type": "ContactPoint",
-                telephone: "+962-7-7091-1991",
-                contactType: "sales",
-                email: "info@jag.jo",
-                availableLanguage: ["en", "ar"],
-              },
-              sameAs: [
-                "https://www.facebook.com/Jordan.JAG.22/",
-                "https://www.linkedin.com/company/jordan-advanced-gate",
-              ],
-            },
-            {
-              "@type": "WebSite",
-              "@id": `${SITE_URL}/#website`,
-              url: SITE_URL,
-              name: "Jordan Advanced Gate",
-              inLanguage: "en",
-              publisher: { "@id": `${SITE_URL}/#organization` },
-            },
-          ],
-        }),
-      },
-    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -177,8 +137,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  // Derived from the URL path (not client state), so the prerendered HTML for
+  // /ar is genuinely emitted with lang="ar" dir="rtl" — see src/lib/i18n.tsx.
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const lang = langFromPathname(pathname);
+  const dir = lang === "ar" ? "rtl" : "ltr";
   return (
-    <html lang="en">
+    <html lang={lang} dir={dir}>
       <head>
         <HeadContent />
       </head>

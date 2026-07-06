@@ -12,20 +12,40 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 // prerender every route to plain HTML for a static Apache host.
 const STATIC = process.env.STATIC_EXPORT === "1";
 
-const ROUTES = [
-  "/", "/about", "/services", "/solutions", "/industries", "/products",
-  "/portfolio", "/projects", "/case-studies", "/clients", "/partners",
-  "/testimonials", "/blog", "/careers", "/faq", "/contact",
-  "/privacy", "/terms", "/thank-you",
+// The site now consolidates all product/marketing content onto two canonical
+// entity pages — "/" (English) and "/ar" (Arabic) — plus the two legal pages.
+// The previously separate marketing routes (about/services/blog/careers/...)
+// were orphaned (unlinked from nav) and are 301-redirected to homepage
+// anchors via public/.htaccess; keeping them in the sitemap would dilute
+// crawl budget and entity signal across many thin/duplicate URLs instead of
+// concentrating authority on the two real entity pages.
+const ROUTES = ["/", "/ar", "/privacy", "/terms"];
+
+const HREFLANG_PAIR = [
+  { href: "https://jagjo.com/", hreflang: "en" },
+  { href: "https://jagjo.com/ar", hreflang: "ar" },
+  { href: "https://jagjo.com/", hreflang: "x-default" },
 ];
 
 const staticStart = STATIC
   ? {
-      prerender: { enabled: true, crawlLinks: true, autoStaticPathsDiscovery: true, failOnError: false },
+      // crawlLinks/autoStaticPathsDiscovery are OFF: the site is a single-page
+      // app with in-page anchor links (#about, #services, ...). With crawling
+      // on, the prerenderer follows those anchors as if they were distinct
+      // pages and adds "https://jagjo.com/#about" etc. as separate sitemap
+      // entries — meaningless/duplicate URLs (fragments aren't crawlable
+      // resources) that dilute the sitemap. ROUTES below is the complete,
+      // authoritative list; nothing needs auto-discovery.
+      prerender: { enabled: true, crawlLinks: false, autoStaticPathsDiscovery: false, failOnError: false },
       pages: ROUTES.map((path) => ({
         path,
         prerender: { enabled: true },
-        sitemap: { priority: path === "/" ? 1.0 : 0.7, changefreq: "weekly" as const },
+        sitemap: {
+          priority: path === "/" || path === "/ar" ? 1.0 : 0.5,
+          changefreq: "weekly" as const,
+          // Only / and /ar are genuine language variants of each other.
+          ...(path === "/" || path === "/ar" ? { alternateRefs: HREFLANG_PAIR } : {}),
+        },
       })),
       sitemap: { enabled: true, host: "https://jagjo.com" },
     }

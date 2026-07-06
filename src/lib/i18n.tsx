@@ -1,4 +1,5 @@
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import { createContext, useContext, type ReactNode } from "react";
+import { useRouterState } from "@tanstack/react-router";
 
 export type Lang = "en" | "ar";
 
@@ -59,6 +60,8 @@ const en: Dict = {
   "label.testimonials": "Testimonials",
   "label.contact": "Contact",
   "label.values": "Core values",
+  "label.outcomes": "Outcomes",
+  "label.faq": "FAQ",
 
   "btn.learnMore": "Learn more",
   "btn.allServices": "Explore all services",
@@ -67,6 +70,10 @@ const en: Dict = {
 
   "solutions.title": "Our products & technical solutions",
   "solutions.sub": "Integrated software, infrastructure and AI — delivered from a single, reliable partner.",
+
+  "outcomes.title": "What our engagements typically deliver",
+  "faq.title": "Frequently asked questions",
+  "faq.sub": "Common questions about Jordan Advanced Gate (JAG) and how we work.",
 
   "clients.title": "Trusted by teams across the region",
   "clients.sub": "From universities and retailers to growing enterprises, organizations rely on JAG to run and grow.",
@@ -180,6 +187,8 @@ const ar: Dict = {
   "label.testimonials": "آراء العملاء",
   "label.contact": "تواصل معنا",
   "label.values": "قيمنا الجوهرية",
+  "label.outcomes": "النتائج",
+  "label.faq": "الأسئلة الشائعة",
 
   "btn.learnMore": "اعرف المزيد",
   "btn.allServices": "استكشف جميع الخدمات",
@@ -188,6 +197,10 @@ const ar: Dict = {
 
   "solutions.title": "منتجاتنا وحلولنا التقنية",
   "solutions.sub": "برمجيات وبنية تحتية وذكاء اصطناعي متكامل — نقدّمها من شريك واحد موثوق.",
+
+  "outcomes.title": "ما الذي تحققه مشاريعنا عادةً",
+  "faq.title": "الأسئلة الشائعة",
+  "faq.sub": "أسئلة متكررة عن البوابة المتقدمة الأردنية (JAG) وطريقة عملنا.",
 
   "clients.title": "يثق بنا فرق العمل في مختلف القطاعات",
   "clients.sub": "من الجامعات وتجار التجزئة إلى المؤسسات النامية، تعتمد المؤسسات على البوابة المتقدمة الأردنية للتشغيل والنمو.",
@@ -248,32 +261,29 @@ const ar: Dict = {
 
 const dicts: Record<Lang, Dict> = { en, ar };
 
-type Ctx = { lang: Lang; setLang: (l: Lang) => void; t: (k: string) => string; dir: "ltr" | "rtl" };
+type Ctx = { lang: Lang; t: (k: string) => string; dir: "ltr" | "rtl" };
 const I18nContext = createContext<Ctx | null>(null);
 
+// Language is derived ENTIRELY from the URL path — /ar (and /ar/*) is Arabic,
+// everything else is English. This is deliberate: the previous implementation
+// held language in React state seeded from localStorage, which only ever
+// changed after a browser ran client JS. Since this site is statically
+// prerendered, the build produces exactly one snapshot of that state (always
+// "en" — there's no localStorage at build time), so Arabic content was never
+// written to any HTML file and was invisible to search engines. Deriving lang
+// from the path instead means the static build genuinely emits two different,
+// fully server-rendered documents (/ and /ar), each crawlable on its own.
+export function langFromPathname(pathname: string): Lang {
+  return pathname === "/ar" || pathname.startsWith("/ar/") ? "ar" : "en";
+}
+
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("en");
-
-  useEffect(() => {
-    const stored = (typeof window !== "undefined" && localStorage.getItem("jag-lang")) as Lang | null;
-    if (stored === "ar" || stored === "en") setLangState(stored);
-  }, []);
-
-  useEffect(() => {
-    if (typeof document === "undefined") return;
-    document.documentElement.lang = lang;
-    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
-  }, [lang]);
-
-  const setLang = (l: Lang) => {
-    setLangState(l);
-    if (typeof window !== "undefined") localStorage.setItem("jag-lang", l);
-  };
-
-  const t = (k: string) => dicts[lang][k] ?? dicts.en[k] ?? k;
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const lang = langFromPathname(pathname);
   const dir = lang === "ar" ? "rtl" : "ltr";
+  const t = (k: string) => dicts[lang][k] ?? dicts.en[k] ?? k;
 
-  return <I18nContext.Provider value={{ lang, setLang, t, dir }}>{children}</I18nContext.Provider>;
+  return <I18nContext.Provider value={{ lang, t, dir }}>{children}</I18nContext.Provider>;
 }
 
 export function useI18n() {

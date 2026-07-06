@@ -137,6 +137,82 @@ export const TESTIMONIALS = [
   },
 ];
 
+// Generic engagement outcomes (marketing copy, not factual claims — safe to translate).
+export const OUTCOMES = [
+  { en: "Faster time-to-market for digital products", ar: "إطلاق أسرع للمنتجات الرقمية إلى السوق" },
+  { en: "Reduced operating costs through automation", ar: "خفض التكاليف التشغيلية عبر الأتمتة" },
+  { en: "Enterprise-grade security & compliance posture", ar: "أمن وامتثال بمستوى المؤسسات" },
+  { en: "Data-driven decision-making at every level", ar: "قرارات مبنية على البيانات في كل المستويات" },
+  { en: "Resilient, elastic cloud infrastructure", ar: "بنية تحتية سحابية مرنة وموثوقة" },
+  { en: "Modern, delightful experiences for users", ar: "تجارب مستخدم حديثة وسلسة" },
+];
+
+// FAQ — brand-identity questions come first (explicit EN/AR name disambiguation
+// for search engines), followed by general engagement questions.
+export type FAQItem = { q: string; a: string; qAr: string; aAr: string };
+export const FAQS: FAQItem[] = [
+  {
+    q: "What is Jordan Advanced Gate (JAG)?",
+    a: "Jordan Advanced Gate — known in Arabic as البوابة المتقدمة الأردنية — is a Jordanian technology company based in Amman that delivers enterprise IT solutions, AI, cybersecurity and digital transformation services across Jordan and the Middle East.",
+    qAr: "ما هي البوابة المتقدمة الأردنية (JAG)؟",
+    aAr: "البوابة المتقدمة الأردنية — المعروفة بالإنجليزية باسم Jordan Advanced Gate — شركة تقنية أردنية مقرها عمّان، تقدّم حلول تقنية المعلومات والذكاء الاصطناعي والأمن السيبراني وخدمات التحول الرقمي في الأردن والشرق الأوسط.",
+  },
+  {
+    q: "Is \"Jordan Advanced Gate\" the same company as \"البوابة المتقدمة الأردنية\"?",
+    a: "Yes. Jordan Advanced Gate and البوابة المتقدمة الأردنية are the English and Arabic names of the same company, also known by the initials JAG. jagjo.com is our official website.",
+    qAr: "هل \"البوابة المتقدمة الأردنية\" و\"Jordan Advanced Gate\" نفس الشركة؟",
+    aAr: "نعم. البوابة المتقدمة الأردنية وJordan Advanced Gate هما الاسمان العربي والإنجليزي لنفس الشركة، المعروفة أيضاً باختصار JAG. الموقع الرسمي لنا هو jagjo.com.",
+  },
+  {
+    q: "Where is Jordan Advanced Gate located?",
+    a: "Our head office is in Amman, Jordan. We serve clients across Jordan, the wider Middle East and internationally.",
+    qAr: "أين يقع مقر البوابة المتقدمة الأردنية؟",
+    aAr: "يقع مقرنا الرئيسي في عمّان، الأردن، ونخدم عملاءنا في الأردن والشرق الأوسط وخارجها.",
+  },
+  {
+    q: "How can I contact Jordan Advanced Gate (JAG)?",
+    a: "Email info@jagjo.com, call +962 7 7091 1991, or use the contact form on this website. Our official Facebook page is facebook.com/Jordan.JAG.22.",
+    qAr: "كيف أتواصل مع البوابة المتقدمة الأردنية (JAG)؟",
+    aAr: "راسلنا على info@jagjo.com، أو اتصل على ‎+962 7 7091 1991‎، أو استخدم نموذج التواصل في الموقع. صفحتنا الرسمية على فيسبوك: facebook.com/Jordan.JAG.22.",
+  },
+  {
+    q: "What industries do you specialize in?",
+    a: "Government, banking, healthcare, education, retail, telecom, logistics and manufacturing — with dedicated practice leads per vertical.",
+    qAr: "ما هي القطاعات التي تتخصصون بها؟",
+    aAr: "القطاع الحكومي، البنوك، الرعاية الصحية، التعليم، التجزئة، الاتصالات، الخدمات اللوجستية والتصنيع — بفرق متخصصة لكل قطاع.",
+  },
+  {
+    q: "Do you work outside Jordan?",
+    a: "Yes. We deliver programs across the Middle East region for clients of every size.",
+    qAr: "هل تعملون خارج الأردن؟",
+    aAr: "نعم. ننفّذ مشاريع في مختلف أنحاء الشرق الأوسط لعملاء بمختلف الأحجام.",
+  },
+  {
+    q: "Can you build on top of our existing systems?",
+    a: "Absolutely — we routinely integrate with SAP, Oracle, Microsoft 365 and legacy in-house systems.",
+    qAr: "هل يمكنكم البناء فوق أنظمتنا الحالية؟",
+    aAr: "بالتأكيد — نقوم بانتظام بالتكامل مع أنظمة SAP وOracle وMicrosoft 365 والأنظمة القديمة الداخلية.",
+  },
+  {
+    q: "Do you have Arabic-speaking teams?",
+    a: "Yes — all client-facing teams are fully bilingual in Arabic and English.",
+    qAr: "هل لديكم فرق تتحدث العربية؟",
+    aAr: "نعم — جميع الفرق التي تتواصل مع العملاء ثنائية اللغة بالكامل، عربي وإنجليزي.",
+  },
+  {
+    q: "What is your approach to AI projects?",
+    a: "We combine open models, commercial APIs and custom fine-tuning — always with human-in-the-loop governance.",
+    qAr: "ما هو نهجكم في مشاريع الذكاء الاصطناعي؟",
+    aAr: "نجمع بين النماذج المفتوحة وواجهات برمجية تجارية وضبط دقيق مخصص — دائماً مع إشراف بشري على القرارات.",
+  },
+  {
+    q: "How do we get started with Jordan Advanced Gate?",
+    a: "Book a short call through the contact form on this site. We respond within one business day.",
+    qAr: "كيف نبدأ التعامل مع البوابة المتقدمة الأردنية؟",
+    aAr: "احجز مكالمة قصيرة عبر نموذج التواصل في هذا الموقع. سنرد خلال يوم عمل واحد.",
+  },
+];
+
 export const PARTNERS = [
   "Arab University College of Technology", "DISTY", "Dubai Style", "Razeen",
   "Talib", "Giessen", "Elite Shooter Center", "JODIY", "Elite Group", "Six Yards MMC",

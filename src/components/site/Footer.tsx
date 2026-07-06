@@ -91,7 +91,7 @@ export function Footer() {
           </div>
           <div className="flex items-start gap-3">
             <Mail className="h-4 w-4 mt-0.5 text-[var(--emerald-glow)]" />
-            <a href="mailto:info@jag.jo" className="hover:text-white">info@jag.jo</a>
+            <a href="mailto:info@jagjo.com" className="hover:text-white">info@jagjo.com</a>
           </div>
           <div className="flex items-start gap-3">
             <Phone className="h-4 w-4 mt-0.5 text-[var(--emerald-glow)]" />

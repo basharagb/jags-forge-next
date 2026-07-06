@@ -15,6 +15,27 @@ DirectoryIndex index.html
   RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
   RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
 
+  # --- Legacy marketing pages consolidated into homepage sections ---
+  # These used to be separate, unlinked (orphaned) pages; content now lives
+  # on "/" (and "/ar") as anchored sections. 301s preserve any link equity /
+  # bookmarks instead of 404ing, and stop Google from indexing them separately.
+  RewriteRule ^about/?$        /#about       [R=301,L]
+  RewriteRule ^services/?$     /#services    [R=301,L]
+  RewriteRule ^solutions/?$    /#solutions   [R=301,L]
+  RewriteRule ^products/?$     /#solutions   [R=301,L]
+  RewriteRule ^industries/?$   /#industries  [R=301,L]
+  RewriteRule ^portfolio/?$    /#clients     [R=301,L]
+  RewriteRule ^projects/?$     /#clients     [R=301,L]
+  RewriteRule ^case-studies/?$ /#clients     [R=301,L]
+  RewriteRule ^clients/?$      /#clients     [R=301,L]
+  RewriteRule ^partners/?$     /#clients     [R=301,L]
+  RewriteRule ^testimonials/?$ /#clients     [R=301,L]
+  RewriteRule ^faq/?$          /#faq         [R=301,L]
+  RewriteRule ^contact/?$      /#contact     [R=301,L]
+  RewriteRule ^thank-you/?$    /             [R=301,L]
+  RewriteRule ^blog/?$         /             [R=301,L]
+  RewriteRule ^careers/?$      /             [R=301,L]
+
   # --- Serve real, existing files as-is (assets, images, sitemap, robots) ---
   RewriteCond %{REQUEST_FILENAME} -f
   RewriteRule ^ - [L]

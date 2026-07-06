@@ -15,9 +15,13 @@ const NAV = [
 ] as const;
 
 export function Header() {
-  const { t, lang, setLang } = useI18n();
+  const { t, lang } = useI18n();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  // Real navigation, not client state — the URL is the single source of truth
+  // for language (see src/lib/i18n.tsx), so switching languages must load the
+  // other language's actual prerendered document, not just re-render in place.
+  const otherLangHref = lang === "en" ? "/ar" : "/";
 
   useEffect(() => {
     const on = () => setScrolled(window.scrollY > 8);
@@ -66,15 +70,15 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={() => setLang(lang === "en" ? "ar" : "en")}
+            <a
+              href={otherLangHref}
+              hrefLang={lang === "en" ? "ar" : "en"}
               className={`hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${iconBtn}`}
               aria-label="Switch language"
             >
               <Globe className="h-4 w-4" />
               {lang === "en" ? "AR" : "EN"}
-            </button>
+            </a>
             <Button asChild size="sm" className="sheen hidden md:inline-flex gradient-emerald text-white hover:opacity-95 hover:scale-[1.04] transition-transform shadow-emerald">
               <a href="/#contact">
                 {t("nav.cta")} <ArrowRight className="ms-1 h-4 w-4 rtl:rotate-180" />
@@ -111,14 +115,14 @@ export function Header() {
               >
                 {t("nav.cta")}
               </a>
-              <button
-                type="button"
-                onClick={() => setLang(lang === "en" ? "ar" : "en")}
+              <a
+                href={otherLangHref}
+                hrefLang={lang === "en" ? "ar" : "en"}
                 className="mt-2 px-3 py-3 rounded-lg text-sm font-medium hover:bg-muted text-start"
               >
                 <Globe className="inline h-4 w-4 me-2" />
                 {lang === "en" ? "العربية" : "English"}
-              </button>
+              </a>
             </div>
           </div>
         )}
