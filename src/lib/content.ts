@@ -147,6 +147,33 @@ export const OUTCOMES = [
   { en: "Modern, delightful experiences for users", ar: "تجارب مستخدم حديثة وسلسة" },
 ];
 
+export const GOVERNMENT_TRANSACTION_SERVICES = [
+  {
+    en: "Follow-up and completion of all government transactions",
+    ar: "متابعة وإنجاز جميع المعاملات الحكومية.",
+  },
+  {
+    en: "Company formation, information amendments and liquidation",
+    ar: "تأسيس الشركات وتعديل بياناتها وتصفيتها.",
+  },
+  {
+    en: "Issuance and renewal of licenses and permits",
+    ar: "إصدار وتجديد التراخيص والتصاريح.",
+  },
+  {
+    en: "Follow-up with ministries, departments and official institutions",
+    ar: "متابعة معاملات الوزارات والدوائر والمؤسسات الرسمية.",
+  },
+  {
+    en: "Dedicated services for business owners and investors",
+    ar: "خدمات مخصصة لرجال الأعمال والمستثمرين.",
+  },
+  {
+    en: "Procedural consultation and transaction follow-up through completion",
+    ar: "تقديم الاستشارات الإجرائية ومتابعة المعاملات حتى إنجازها.",
+  },
+];
+
 // FAQ — brand-identity questions come first (explicit EN/AR name disambiguation
 // for search engines), followed by general engagement questions.
 export type FAQItem = { q: string; a: string; qAr: string; aAr: string };

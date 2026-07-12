@@ -4,6 +4,7 @@ import {
   ArrowRight, Play, Sparkles, ShieldCheck, Zap, Star,
   CheckCircle2, TrendingUp, Globe, Target, Compass, Shield, Heart, Rocket,
   Mail, Phone, MapPin, Facebook, Send, ChevronDown,
+  Landmark, FileCheck2,
 } from "lucide-react";
 import { SiteShell } from "@/components/site/SiteShell";
 import { HeroCanvas } from "@/components/site/HeroCanvas";
@@ -13,7 +14,7 @@ import { Button } from "@/components/ui/button";
 import { useI18n } from "@/lib/i18n";
 import {
   SERVICES, WHY, STATS, INDUSTRIES, TECHS, TESTIMONIALS, PARTNERS, SOLUTIONS,
-  OUTCOMES, FAQS,
+  OUTCOMES, FAQS, GOVERNMENT_TRANSACTION_SERVICES,
 } from "@/lib/content";
 
 // Full homepage content, shared by both language routes (src/routes/index.tsx
@@ -30,6 +31,7 @@ export function HomePage() {
       <Stats />
       <About />
       <Services />
+      <GovernmentTransactions />
       <Solutions />
       <WhyUs />
       <Industries />
@@ -292,6 +294,54 @@ function Services() {
             </li>
           ))}
         </ul>
+      </div>
+    </section>
+  );
+}
+
+function GovernmentTransactions() {
+  const { t, lang } = useI18n();
+
+  return (
+    <section id="government-transactions" className="scroll-mt-28 border-y border-border bg-surface-2/60 py-24">
+      <div className="container-x">
+        <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+          <Reveal>
+            <div>
+              <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl gradient-brand text-white shadow-emerald">
+                <Landmark className="h-7 w-7" />
+              </div>
+              <p className="mt-6 text-xs uppercase tracking-[0.24em] font-semibold text-[var(--emerald-brand)]">
+                {t("government.eyebrow")}
+              </p>
+              <h2 className={`mt-3 text-4xl md:text-5xl font-bold tracking-tight ${lang === "ar" ? "leading-[1.35]" : ""}`}>
+                {t("government.title")}
+              </h2>
+              <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
+                {t("government.intro")}
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <div className="premium-card p-7 sm:p-9">
+              <h3 className="text-xl font-bold">{t("government.includes")}</h3>
+              <ul className="mt-6 grid gap-4 sm:grid-cols-2">
+                {GOVERNMENT_TRANSACTION_SERVICES.map((service) => (
+                  <li key={service.en} className="flex items-start gap-3">
+                    <FileCheck2 className="mt-0.5 h-5 w-5 shrink-0 text-[var(--emerald-brand)]" />
+                    <span className="text-sm leading-relaxed text-foreground/85">
+                      {lang === "ar" ? service.ar : service.en}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-7 border-t border-border pt-6 leading-relaxed text-foreground/85">
+                {t("government.commitment")}
+              </p>
+            </div>
+          </Reveal>
+        </div>
       </div>
     </section>
   );

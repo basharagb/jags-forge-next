@@ -42,6 +42,13 @@ const en: Dict = {
 
   "services.title": "Services built for enterprise scale",
   "services.sub": "From custom software to full digital transformation programs — engineered end-to-end.",
+  "government.eyebrow": "Government transaction services",
+  "government.title": "Government transaction follow-up & completion",
+  "government.intro":
+    "Jordan Advanced Gate provides comprehensive, professional services for following up and completing government transactions, tailored to the needs of companies, organizations and business owners across sectors.",
+  "government.includes": "Our services include",
+  "government.commitment":
+    "We are committed to fast, accurate and reliable service, with continuous follow-up to complete our clients’ transactions to the highest professional standards.",
 
   "industries.title": "Industries we serve",
   "industries.sub": "Deep vertical expertise across regulated and high-growth sectors.",
@@ -169,6 +176,13 @@ const ar: Dict = {
 
   "services.title": "خدمات مصممة لمستوى المؤسسات",
   "services.sub": "من تطوير البرمجيات المخصصة إلى برامج التحول الرقمي الشاملة.",
+  "government.eyebrow": "خدمات حكومية متكاملة",
+  "government.title": "خدمات متابعة وإنجاز المعاملات الحكومية",
+  "government.intro":
+    "تقدم البوابة المتقدمة الأردنية للحلول والأنظمة خدمات متكاملة لمتابعة وإنجاز المعاملات الحكومية بكفاءة واحترافية، بما يلبي احتياجات الشركات والمؤسسات ورجال الأعمال في مختلف القطاعات.",
+  "government.includes": "تشمل خدماتنا:",
+  "government.commitment":
+    "نلتزم بتقديم خدمة سريعة، دقيقة، وموثوقة، مع متابعة مستمرة لضمان إنجاز معاملات عملائنا بأعلى مستويات الاحترافية.",
 
   "industries.title": "القطاعات التي نخدمها",
   "industries.sub": "خبرة عميقة في القطاعات المنظمة والنامية.",

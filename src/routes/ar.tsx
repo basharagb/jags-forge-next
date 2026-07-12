@@ -7,9 +7,9 @@ import { buildHomeJsonLd, SITE_URL, OG_IMAGE, EN_NAME, AR_NAME } from "@/lib/seo
 // (see src/lib/i18n.tsx for why a client-side language toggle alone cannot
 // produce crawlable Arabic content). Renders the exact same <HomePage/> tree
 // as "/" — useI18n() derives "ar" from this route's own /ar path.
-const TITLE = `${AR_NAME} (${EN_NAME}) — حلول تقنية المعلومات والذكاء الاصطناعي والتحول الرقمي`;
+const TITLE = AR_NAME;
 const DESCRIPTION =
-  `${AR_NAME} (${EN_NAME}) شركة تقنية أردنية مقرها عمّان، تقدّم برمجيات المؤسسات والذكاء الاصطناعي والحوسبة السحابية والأمن السيبراني والتحول الرقمي للحكومات والبنوك والجامعات والشركات في الأردن والشرق الأوسط.`;
+  `${AR_NAME} شركة أردنية تقدم خدمات متابعة وإنجاز المعاملات الحكومية وتأسيس الشركات وإصدار وتجديد التراخيص والتصاريح، إلى جانب الحلول التقنية المتكاملة.`;
 
 export const Route = createFileRoute("/ar")({
   head: () => ({

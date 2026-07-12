@@ -1,4 +1,4 @@
-import { FAQS, SERVICES } from "./content";
+import { FAQS, GOVERNMENT_TRANSACTION_SERVICES, SERVICES } from "./content";
 
 export const SITE_URL = "https://jagjo.com";
 export const OG_IMAGE = `${SITE_URL}/og-image.png`;
@@ -31,7 +31,7 @@ export function buildHomeJsonLd(lang: "en" | "ar") {
         name: primaryName,
         alternateName: altNames,
         description: isAr
-          ? "شركة تقنية أردنية تقدّم حلول البرمجيات والذكاء الاصطناعي والحوسبة السحابية والأمن السيبراني والتحول الرقمي."
+          ? "البوابة المتقدمة الأردنية شركة أردنية تقدم خدمات متابعة وإنجاز المعاملات الحكومية، إلى جانب حلول البرمجيات والذكاء الاصطناعي والتحول الرقمي."
           : "Jordanian technology company delivering software, AI, cloud, cybersecurity and digital transformation solutions.",
         url: SITE_URL,
         logo: `${SITE_URL}/jag-mark.png`,
@@ -68,7 +68,7 @@ export function buildHomeJsonLd(lang: "en" | "ar") {
         "@id": `${pageUrl}#webpage`,
         url: pageUrl,
         name: isAr
-          ? `${AR_NAME} — حلول تقنية المعلومات والذكاء الاصطناعي والتحول الرقمي`
+          ? AR_NAME
           : `${EN_NAME} — Enterprise IT, AI & Digital Transformation`,
         isPartOf: { "@id": `${SITE_URL}/#website` },
         about: { "@id": `${SITE_URL}/#organization` },
@@ -79,7 +79,15 @@ export function buildHomeJsonLd(lang: "en" | "ar") {
         "@type": "ItemList",
         "@id": `${pageUrl}#services`,
         name: isAr ? "خدمات البوابة المتقدمة الأردنية" : "Jordan Advanced Gate services",
-        itemListElement: SERVICES.map((s, i) => ({
+        itemListElement: [
+          {
+            title: "Government Transaction Follow-up & Completion",
+            titleAr: "خدمات متابعة وإنجاز المعاملات الحكومية",
+            desc: GOVERNMENT_TRANSACTION_SERVICES.map((service) => service.en).join("; "),
+            descAr: GOVERNMENT_TRANSACTION_SERVICES.map((service) => service.ar).join(" "),
+          },
+          ...SERVICES,
+        ].map((s, i) => ({
           "@type": "ListItem",
           position: i + 1,
           item: {
